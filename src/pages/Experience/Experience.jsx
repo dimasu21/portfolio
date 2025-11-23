@@ -1,5 +1,5 @@
 import React from "react";
-import { Code2, Activity, Cpu, Layers, Network, Binary } from "lucide-react";
+import { Code2, Activity, Cpu, Layers, Network, Binary, Share2 } from "lucide-react";
 
 const ExperienceCard = ({
   title,
@@ -67,7 +67,7 @@ const ExperienceCard = ({
 const ExperienceSection = () => {
   const experiences = [
     {
-      customSvg: "/src/assets/icons/design-dev.svg",
+      icon: Share2,
       title: "Social Media Specialist",
       company: "MyAvi Studio",
       period: "2022 - 2023",
