@@ -49,7 +49,7 @@ const GitHubStats = ({ username = "dimasu21" }) => {
           className="transform hover:scale-105 transition-transform duration-300"
         >
           <img
-            src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true&background=0d1117`}
+            src={`https://streak-stats.demolab.com/?user=${username}&theme=${theme}&hide_border=true&background=0d1117`}
             alt="GitHub Streak"
             className="rounded-lg"
             loading="lazy"
