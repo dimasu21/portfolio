@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Send, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,25 +21,25 @@ export default function Contact() {
     let isValid = true;
 
     if (!formData.name.trim()) {
-      tempErrors.name = "Nama wajib diisi";
+      tempErrors.name = t("contact.validation.nameRequired");
       isValid = false;
     }
 
     if (!formData.email.trim()) {
-      tempErrors.email = "Email wajib diisi";
+      tempErrors.email = t("contact.validation.emailRequired");
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = "Format email tidak valid";
+      tempErrors.email = t("contact.validation.emailInvalid");
       isValid = false;
     }
 
     if (!formData.subject.trim()) {
-      tempErrors.subject = "Subjek wajib diisi";
+      tempErrors.subject = t("contact.validation.subjectRequired");
       isValid = false;
     }
 
     if (!formData.message.trim()) {
-      tempErrors.message = "Pesan wajib diisi";
+      tempErrors.message = t("contact.validation.messageRequired");
       isValid = false;
     }
 
@@ -51,7 +53,7 @@ export default function Contact() {
     if (!validateForm()) {
       setStatus({
         type: "error",
-        message: "Mohon isi semua field dengan benar.",
+        message: t("contact.validation.fillAll"),
       });
       return;
     }
@@ -118,18 +120,18 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Get in Touch
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+                  {t("contact.title")}
                 </h2>
                 <p className="text-gray-300 text-lg">
-                  Have a question or want to work together? Drop us a message!
+                  {t("contact.subtitle")}
                 </p>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-center space-x-4 group hover:translate-x-2 transition-transform">
-                  <div className="bg-purple-500/10 p-3 rounded-lg group-hover:bg-purple-500/20 transition-colors">
-                    <Mail className="w-6 h-6 text-purple-400" />
+                  <div className="bg-teal-500/10 p-3 rounded-lg group-hover:bg-teal-500/20 transition-colors">
+                    <Mail className="w-6 h-6 text-teal-400" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
@@ -142,7 +144,7 @@ export default function Contact() {
                     <MapPin className="w-6 h-6 text-pink-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Location</h3>
+                    <h3 className="font-semibold">{t("contact.location")}</h3>
                     <p className="text-gray-400">Central Java, Indonesia</p>
                   </div>
                 </div>
@@ -156,7 +158,7 @@ export default function Contact() {
                   <div>
                     <input
                       type="text"
-                      placeholder="Your Name"
+                      placeholder={t("contact.namePlaceholder")}
                       className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.name ? "border-red-500" : "border-gray-700"
                         } focus:border-blue-500 focus:outline-none transition-colors text-white placeholder-gray-400`}
                       value={formData.name}
@@ -176,7 +178,7 @@ export default function Contact() {
                   <div>
                     <input
                       type="email"
-                      placeholder="Email"
+                      placeholder={t("contact.emailPlaceholder")}
                       className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.email ? "border-red-500" : "border-gray-700"
                         } focus:border-blue-500 focus:outline-none transition-colors text-white placeholder-gray-400`}
                       value={formData.email}
@@ -196,7 +198,7 @@ export default function Contact() {
                   <div>
                     <input
                       type="text"
-                      placeholder="Subject"
+                      placeholder={t("contact.subjectPlaceholder")}
                       className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.subject ? "border-red-500" : "border-gray-700"
                         } focus:border-blue-500 focus:outline-none transition-colors text-white placeholder-gray-400`}
                       value={formData.subject}
@@ -215,7 +217,7 @@ export default function Contact() {
 
                   <div>
                     <textarea
-                      placeholder="Message"
+                      placeholder={t("contact.messagePlaceholder")}
                       rows="4"
                       className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.message ? "border-red-500" : "border-gray-700"
                         } focus:border-blue-500 focus:outline-none transition-colors resize-none text-white placeholder-gray-400`}
@@ -237,9 +239,9 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>{isSubmitting ? "Sending..." : "Send"}</span>
+                  <span>{isSubmitting ? t("contact.sending") : t("contact.send")}</span>
                   <Send className="w-4 h-4" />
                 </button>
               </form>

@@ -8,7 +8,9 @@ import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
 import Certificate from "./pages/Certificate/Certificate";
 import Service from "./pages/Service/Service";
-import Footer from "./components/Footer"; // ✅ Import Footer
+import Guestbook from "./pages/Guestbook/Guestbook";
+import Footer from "./components/Footer";
+import CursorTrail from "./components/CursorTrail";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -16,6 +18,7 @@ export default function App() {
 
   return (
     <>
+      <CursorTrail />
       <Header />
       {isOnePage ? (
         <>
@@ -34,9 +37,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/service" element={<Service />} />
+          <Route path="/guestbook" element={<Guestbook />} />
         </Routes>
       )}
-      <Footer /> {/* ✅ Tambahkan Footer di sini */}
+      <Footer />
     </>
   );
 }

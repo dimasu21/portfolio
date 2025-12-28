@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "skills": "Keahlian",
+    "experience": "Pengalaman",
+    "certificate": "Sertifikat",
+    "projects": "Proyek",
+    "service": "Layanan",
+    "contact": "Kontak",
+    "guestbook": "Buku Tamu"
+  },
+  "hero": {
+    "welcome": "Selamat datang di dunia saya",
+    "hello": "Halo",
+    "im": "Saya",
+    "description": "AI Engineer | Pengembangan Website | UI/UX Design Enthusiast dan membangun masa depan",
+    "learnMore": "Pelajari Lebih",
+    "hireMe": "Rekrut Saya",
+    "downloadCV": "Unduh CV",
+    "aboutMe": "Tentang saya",
+    "uiMagic": "UI Magic",
+    "cleanCode": "Kode Bersih",
+    "innovation": "Inovasi"
+  },
+  "about": {
+    "title": "Riset AI, Developer, Designer, dan Inovator",
+    "intro": "Halo! Saya Dimas Tri Mulyo, seorang AI Engineer dengan keahlian dalam pengembangan web. Saya bersemangat mengintegrasikan kecerdasan buatan untuk menciptakan solusi web yang inovatif dan ramah pengguna.",
+    "focus": "Fokus saya adalah membuat pengembangan web lebih cepat dan mudah diakses. Sebagai AI Engineer, saya kini berkembang ke pengembangan backend untuk tumbuh sebagai full-stack developer, memungkinkan saya membangun aplikasi web yang mulus, robust, dan cerdas dari ujung ke ujung.",
+    "terminalTitle": "Coba Terminal Interaktif Saya",
+    "terminalHint": "Ketik 'help' untuk melihat perintah yang tersedia",
+    "quote": "Saya diingatkan tentang apa yang mungkin merupakan aturan fundamental kemajuan teknologi: jika sesuatu bisa dilakukan, mungkin akan dilakukan, dan mungkin sudah dilakukan."
+  },
+  "skills": {
+    "title": "Keahlian Teknis",
+    "subtitle": "Teknologi dan alat yang saya kuasai",
+    "frontend": "Pengembangan Frontend",
+    "backend": "Pengembangan Backend",
+    "tools": "Alat & Lainnya",
+    "design": "Desain UI/UX",
+    "ai": "AI & Machine Learning",
+    "devops": "DevOps & Cloud"
+  },
+  "experience": {
+    "title": "Perjalanan",
+    "subtitle": "Mengubah ide menjadi realitas digital, satu proyek pada satu waktu"
+  },
+  "certificate": {
+    "title": "Sertifikasi",
+    "subtitle": "Sertifikasi profesional dan pencapaian",
+    "viewCertificate": "Lihat Sertifikat"
+  },
+  "projects": {
+    "title": "Proyek Unggulan",
+    "subtitle": "Menampilkan proyek terpilih di bidang AI Engineering dan Pengembangan Web.",
+    "sourceCode": "Kode Sumber",
+    "liveDemo": "Demo Langsung"
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "subtitle": "Punya pertanyaan atau ingin bekerja sama? Kirim pesan!",
+    "name": "Nama Anda",
+    "namePlaceholder": "Masukkan nama Anda",
+    "email": "Email",
+    "emailPlaceholder": "email@anda.com",
+    "subject": "Subjek",
+    "subjectPlaceholder": "Tentang apa?",
+    "message": "Pesan",
+    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "send": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "success": "Pesan berhasil terkirim! Terima kasih telah menghubungi saya.",
+    "error": "Terjadi kesalahan. Silakan coba lagi.",
+    "validation": {
+      "nameRequired": "Nama wajib diisi",
+      "emailRequired": "Email wajib diisi",
+      "emailInvalid": "Format email tidak valid",
+      "subjectRequired": "Subjek wajib diisi",
+      "messageRequired": "Pesan wajib diisi",
+      "fillAll": "Mohon isi semua field dengan benar."
+    },
+    "location": "Lokasi",
+    "locationValue": "Indonesia"
+  },
+  "guestbook": {
+    "title": "Buku Tamu",
+    "subtitle": "Tinggalkan pesan untuk saya! Saya senang mendengar dari Anda.",
+    "leaveMessage": "Tinggalkan Pesan",
+    "name": "Nama Anda",
+    "namePlaceholder": "Masukkan nama Anda",
+    "message": "Pesan",
+    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "send": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "recentMessages": "Pesan Terbaru",
+    "noMessages": "Belum ada pesan. Jadilah yang pertama!"
+  },
+  "footer": {
+    "rights": "Hak cipta dilindungi.",
+    "builtWith": "Dibuat dengan",
+    "visits": "kunjungan"
+  },
+  "github": {
+    "title": "Statistik GitHub"
+  }
+}

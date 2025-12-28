@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "experience": "Experience",
+    "certificate": "Certificate",
+    "projects": "Projects",
+    "service": "Service",
+    "contact": "Contact",
+    "guestbook": "Guestbook"
+  },
+  "hero": {
+    "welcome": "Welcome to my universe",
+    "hello": "Hello",
+    "im": "I'm",
+    "description": "AI Engineer | Website Development | UI/UX Design Enthusiast and coding the future",
+    "learnMore": "Learn More",
+    "hireMe": "Hire Me",
+    "downloadCV": "Download CV",
+    "aboutMe": "About me",
+    "uiMagic": "UI Magic",
+    "cleanCode": "Clean Code",
+    "innovation": "Innovation"
+  },
+  "about": {
+    "title": "AI Research, Developer, Designer, and Innovator",
+    "intro": "Hello! I'm Dimas Tri Mulyo, an AI Engineer with expertise in web development. I am passionate about integrating artificial intelligence to create innovative and user-friendly web solutions.",
+    "focus": "My focus is on making web development faster and more accessible. As an AI Engineer, I'm now expanding into backend development to grow as a full-stack developer, enabling me to build seamless, robust, and intelligent web applications from end-to-end.",
+    "terminalTitle": "Try My Interactive Terminal",
+    "terminalHint": "Type 'help' to see available commands",
+    "quote": "I was reminded of what is perhaps the fundamental rule of technological progress: if something can be done, it probably will be done, and possibly already has been."
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I work with",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "tools": "Tools & Others",
+    "design": "UI/UX Design",
+    "ai": "AI & Machine Learning",
+    "devops": "DevOps & Cloud"
+  },
+  "experience": {
+    "title": "Journey",
+    "subtitle": "Transforming ideas into digital reality, one project at a time"
+  },
+  "certificate": {
+    "title": "Certifications",
+    "subtitle": "Professional certifications and achievements",
+    "viewCertificate": "View Certificate"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Showcasing selected projects in AI Engineering and Web Development.",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a question or want to work together? Drop me a message!",
+    "name": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "What's this about?",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! Thank you for contacting me.",
+    "error": "An error occurred. Please try again.",
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "subjectRequired": "Subject is required",
+      "messageRequired": "Message is required",
+      "fillAll": "Please fill all fields correctly."
+    },
+    "location": "Location",
+    "locationValue": "Indonesia"
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "subtitle": "Leave a message for me! I'd love to hear from you.",
+    "leaveMessage": "Leave a Message",
+    "name": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "recentMessages": "Recent Messages",
+    "noMessages": "No messages yet. Be the first to leave one!"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with",
+    "visits": "visits"
+  },
+  "github": {
+    "title": "GitHub Statistics"
+  }
+}

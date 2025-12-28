@@ -9,11 +9,15 @@ import {
   FaEnvelope,
   FaBars,
   FaConciergeBell,
+  FaComments,
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Header() {
   const location = useLocation();
+  const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState(() => {
     const path = location.pathname.substring(1) || "home";
     return path;
@@ -28,23 +32,24 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { id: "home", icon: FaHome, text: "Home", path: "/" },
-    { id: "skills", icon: FaCode, text: "Skills", path: "/skills" },
+    { id: "home", icon: FaHome, textKey: "nav.home", path: "/" },
+    { id: "skills", icon: FaCode, textKey: "nav.skills", path: "/skills" },
     {
       id: "experience",
       icon: FaBriefcase,
-      text: "Experience",
+      textKey: "nav.experience",
       path: "/experience",
     },
     {
-      id: "Certificate",
+      id: "certificate",
       icon: FaGraduationCap,
-      text: "Certificate",
-      path: "/Certificate",
+      textKey: "nav.certificate",
+      path: "/certificate",
     },
-    { id: "projects", icon: FaLaptopCode, text: "Projects", path: "/projects" },
-    { id: "service", icon: FaConciergeBell, text: "Service", path: "/service" },
-    { id: "contact", icon: FaEnvelope, text: "Contact", path: "/contact" },
+    { id: "projects", icon: FaLaptopCode, textKey: "nav.projects", path: "/projects" },
+    { id: "service", icon: FaConciergeBell, textKey: "nav.service", path: "/service" },
+    { id: "guestbook", icon: FaComments, textKey: "nav.guestbook", path: "/guestbook" },
+    { id: "contact", icon: FaEnvelope, textKey: "nav.contact", path: "/contact" },
   ];
 
   return (
@@ -58,19 +63,22 @@ export default function Header() {
                 <img src="/src/assets/icons/D logo.svg" alt="Logo" className="h-8 w-8" />
                 <span className="text-white font-bold text-lg">Dimas Tri M</span>
               </Link>
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white p-2"
-              >
-                <FaBars />
-              </button>
+              <div className="flex items-center gap-2">
+                <LanguageSwitcher />
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-white p-2"
+                >
+                  <FaBars />
+                </button>
+              </div>
             </div>
 
             {/* Navigation Links */}
             <div className={`${isMenuOpen ? "block" : "hidden"} md:block`}>
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-1 lg:gap-2 py-4 md:py-0">
 
-                {navLinks.map(({ id, icon: Icon, text, path }) => (
+                {navLinks.map(({ id, icon: Icon, textKey, path }) => (
                   <Link
                     key={id}
                     to={path}
@@ -91,9 +99,14 @@ export default function Header() {
                       className={`text-base ${activeLink === id ? "scale-110" : ""
                         }`}
                     />
-                    <span className="inline">{text}</span>
+                    <span className="inline">{t(textKey)}</span>
                   </Link>
                 ))}
+                
+                {/* Desktop Language Toggle */}
+                <div className="hidden md:flex items-center gap-2 ml-2 pl-2 border-l border-gray-700/50">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </div>
           </nav>

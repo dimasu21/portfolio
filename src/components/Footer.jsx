@@ -2,9 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
+import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   const socialLinks = [
     {
@@ -28,18 +31,17 @@ const Footer = () => {
     <footer className="bg-[#0B1121] text-gray-400 py-10 md:py-16 border-t border-gray-800">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
-          {/* Bagian Kiri: Copyright */}
+          {/* Left Section: Copyright & Visit Counter */}
           <div className="text-center md:text-left">
             <p className="text-sm font-medium text-gray-300">
-              &copy; {currentYear} Dimas Tri Mulyo. All rights reserved.
+              &copy; {currentYear} Dimas Tri Mulyo. {t("footer.rights")}
             </p>
-            <p className="text-xs mt-2 text-gray-600">
-              Built with <span className="text-red-500">❤️</span> using React &
-              Tailwind CSS.
-            </p>
+            <div className="mt-3">
+              <VisitCounter />
+            </div>
           </div>
 
-          {/* Bagian Kanan: Sosmed Icons */}
+          {/* Right Section: Social Icons */}
           <div className="flex gap-6 items-center">
             {socialLinks.map((social) => (
               <motion.a
