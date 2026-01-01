@@ -41,20 +41,7 @@ const GitHubStats = ({ username = "dimasu21" }) => {
           />
         </a>
         
-        {/* GitHub Streak */}
-        <a 
-          href={`https://github.com/${username}`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="transform hover:scale-105 transition-transform duration-300"
-        >
-          <img
-            src={`https://streak-stats.demolab.com/?user=${username}&theme=${theme}&hide_border=true&background=0d1117`}
-            alt="GitHub Streak"
-            className="rounded-lg"
-            loading="lazy"
-          />
-        </a>
+
       </div>
     </div>
   );

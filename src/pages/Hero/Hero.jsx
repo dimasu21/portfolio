@@ -147,15 +147,7 @@ const profile = {
               <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
               <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
 
-              {/* Welcome badge */}
-              <div className="flex justify-center sm:justify-start mb-6 sm:mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 animate__animated animate__fadeInDown animate__delay-1s max-w-full">
-                  <div className="w-2 h-2 flex-shrink-0 rounded-full bg-blue-400 animate-pulse"></div>
-                  <span className="text-gray-300 text-xs sm:text-sm font-medium whitespace-nowrap">
-                    {t("hero.welcome")}
-                  </span>
-                </div>
-              </div>
+
 
               {/* Name section */}
               <div className="relative mb-6 sm:mb-8">

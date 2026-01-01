@@ -22,15 +22,15 @@ const Terminal = () => {
   date      - Show current date/time`,
     
     about: () => `
-👋 Hi! I'm Dimas Tri Mulyo
+Hi! I'm Dimas Tri Mulyo
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 AI Engineer & Full-Stack Developer
-📍 Based in Central Java, Indonesia
-💼 Passionate about AI, Web Development & UI/UX
-🎓 4+ years of coding experience`,
+AI Engineer & Full-Stack Developer
+Based in Central Java, Indonesia
+Passionate about AI, Web Development & UI/UX
+4+ years of coding experience`,
     
     skills: () => `
-💻 Technical Skills:
+Technical Skills:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Frontend  : React, Vue, Tailwind CSS, Framer Motion
 Backend   : Python, Node.js, Express
@@ -40,7 +40,7 @@ DevOps    : Docker, Git, GitHub Actions
 Tools     : VS Code, Figma, Google Colab`,
     
     projects: () => `
-🚀 Featured Projects:
+Featured Projects:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. House Price Prediction (ML)
 2. Road Pothole Detection (YOLO)
@@ -50,13 +50,13 @@ Tools     : VS Code, Figma, Google Colab`,
 Type 'open projects' to navigate to projects page`,
     
     contact: () => `
-📬 Contact Information:
+Contact Information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📧 Email   : dimsartz021@gmail.com
-📍 Location: Central Java, Indonesia`,
+Email   : dimsartz021@gmail.com
+Location: Central Java, Indonesia`,
     
     social: () => `
-🌐 Social Links:
+Social Links:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GitHub   : github.com/DimasTriM
 LinkedIn : linkedin.com/in/dimas-tri-mulyo-1283a5392`,
@@ -149,7 +149,6 @@ LinkedIn : linkedin.com/in/dimas-tri-mulyo-1283a5392`,
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <span className="ml-3 text-gray-400 text-sm font-mono">dimas@portfolio:~</span>
         </div>
         
         {/* Terminal Body */}
