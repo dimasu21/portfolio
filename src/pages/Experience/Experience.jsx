@@ -8,7 +8,7 @@ const ExperienceCard = ({
   period,
   description,
   icon: Icon,
-  customSvg, // Tambahkan prop untuk custom SVG
+  customSvg,
 }) => (
   <div className="group relative overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
     {/* Glass morphism effect */}
@@ -70,26 +70,24 @@ const ExperienceSection = () => {
   const experiences = [
     {
       icon: Share2,
-      title: "Social Media Specialist",
-      company: "MyAvi Studio",
-      period: "2022 - 2023",
-      description:
-        "Managed and curated engaging content while fostering online communities for clients worldwide.",
+      title: t("experience.socialMedia.title"),
+      company: t("experience.socialMedia.company"),
+      period: t("experience.socialMedia.period"),
+      description: t("experience.socialMedia.description"),
     },
     {
       icon: Layers,
-      title: "Website Developer",
-      company: "Freelancer",
-      period: "2022 - Present",
-      description:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
+      title: t("experience.webDev.title"),
+      company: t("experience.webDev.company"),
+      period: t("experience.webDev.period"),
+      description: t("experience.webDev.description"),
     },
     {
       icon: Network,
-      title: "AI Engineer",
-      company: "Dicoding Academy",
-      period: "2021 - Present",
-      description: "Studying AI Engineering at Dicoding Academy.",
+      title: t("experience.aiEngineer.title"),
+      company: t("experience.aiEngineer.company"),
+      period: t("experience.aiEngineer.period"),
+      description: t("experience.aiEngineer.description"),
     },
   ];
 

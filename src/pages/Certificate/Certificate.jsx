@@ -12,8 +12,10 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import GridBackground from "@/components/GridBackground";
+import { useTranslation } from "react-i18next";
 
 const CertificateSection = () => {
+  const { t } = useTranslation();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const CertificateData = [
@@ -118,11 +120,10 @@ const CertificateSection = () => {
           className="text-center mb-16"
         >
           <h2 className="pt-32 text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-6">
-            Professional Certificate
+            {t("certificate.title")}
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            Continuous learning and professional growth through
-            industry-standard certifications.
+            {t("certificate.subtitle")}
           </p>
         </motion.div>
 
@@ -205,7 +206,7 @@ const CertificateSection = () => {
                   className="w-full text-center bg-gray-800 hover:bg-teal-500 hover:text-white text-teal-400 py-2 rounded-lg transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-2 border border-gray-700 hover:border-teal-500"
                 >
                   <ExternalLink size={14} />
-                  View Certificate
+                  {t("certificate.viewCertificate")}
                 </a>
 
                 {/* Skills Footer */}

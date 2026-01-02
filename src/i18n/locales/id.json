@@ -42,7 +42,25 @@
   },
   "experience": {
     "title": "Perjalanan",
-    "subtitle": "Mengubah ide menjadi realitas digital, satu proyek pada satu waktu"
+    "subtitle": "Mengubah ide menjadi realitas digital, satu proyek pada satu waktu",
+    "socialMedia": {
+      "title": "Spesialis Media Sosial",
+      "company": "MyAvi Studio",
+      "period": "2022 - 2023",
+      "description": "Mengelola dan mengkurasi konten menarik sambil membangun komunitas online untuk klien di seluruh dunia."
+    },
+    "webDev": {
+      "title": "Pengembang Website",
+      "company": "Freelancer",
+      "period": "2022 - Sekarang",
+      "description": "Membantu membangun dan mengoptimalkan antarmuka pengguna dengan fokus pada desain responsif dan interaktif."
+    },
+    "aiEngineer": {
+      "title": "AI Engineer",
+      "company": "Dicoding Academy",
+      "period": "2021 - Sekarang",
+      "description": "Belajar AI Engineering di Dicoding Academy."
+    }
   },
   "certificate": {
     "title": "Sertifikasi",
@@ -53,7 +71,43 @@
     "title": "Proyek Unggulan",
     "subtitle": "Menampilkan proyek terpilih di bidang AI Engineering dan Pengembangan Web.",
     "sourceCode": "Kode Sumber",
-    "liveDemo": "Demo Langsung"
+    "liveDemo": "Demo Langsung",
+    "items": {
+      "house": {
+        "title": "Prediksi Harga Rumah Akurat",
+        "description": "Model Machine Learning cerdas yang dirancang untuk memprediksi harga rumah dengan akurasi tinggi dengan menganalisis fitur properti, lokasi, dan tren pasar."
+      },
+      "pothole": {
+        "title": "Deteksi Lubang Jalan",
+        "description": "Sistem Computer Vision berbasis Deep Learning (YOLO) untuk deteksi kerusakan jalan secara real-time guna memfasilitasi pemeliharaan infrastruktur yang efisien."
+      },
+      "dss": {
+        "title": "Sistem Pendukung Keputusan (SPK)",
+        "description": "Sistem Pendukung Keputusan interaktif yang dirancang untuk membantu memilih alternatif terbaik menggunakan metode analisis data kompleks WP (Weight Product)."
+      },
+      "portfolio": {
+        "title": "Portfolio Personal Modern",
+        "description": "Website portfolio modern yang dibangun dengan React, Tailwind CSS, dan Framer Motion, menampilkan animasi halus dan desain responsif penuh."
+      }
+    }
+  },
+  "service": {
+    "title": "Layanan",
+    "titleHighlight": "Saya",
+    "subtitle": "Saya menawarkan berbagai layanan untuk membantu mewujudkan ide Anda, mulai dari pengembangan web hingga solusi bertenaga AI.",
+    "label": "Layanan",
+    "webDev": {
+      "title": "Pengembangan Web",
+      "description": "Membangun situs web responsif dan berkinerja tinggi menggunakan teknologi modern seperti React, Node.js, dan Tailwind CSS."
+    },
+    "uiux": {
+      "title": "Desain UI/UX",
+      "description": "Mendesain antarmuka yang intuitif dan menarik secara visual yang mengutamakan kebutuhan pengguna dan meningkatkan keterlibatan."
+    },
+    "ai": {
+      "title": "Solusi AI",
+      "description": "Mengimplementasikan solusi cerdas menggunakan algoritma machine learning dan deep learning untuk memecahkan masalah kompleks."
+    }
   },
   "contact": {
     "title": "Hubungi Saya",
@@ -82,17 +136,22 @@
     "locationValue": "Indonesia"
   },
   "guestbook": {
-    "title": "Buku Tamu",
-    "subtitle": "Tinggalkan pesan untuk saya! Saya senang mendengar dari Anda.",
+    "title": "Ruang Obrolan",
+    "subtitle": "Jangan ragu untuk berbagi pendapat, saran, pertanyaan, atau apapun!",
     "leaveMessage": "Tinggalkan Pesan",
     "name": "Nama Anda",
     "namePlaceholder": "Masukkan nama Anda",
     "message": "Pesan",
-    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "messagePlaceholder": "Ketik pesan Anda...",
     "send": "Kirim Pesan",
     "sending": "Mengirim...",
     "recentMessages": "Pesan Terbaru",
-    "noMessages": "Belum ada pesan. Jadilah yang pertama!"
+    "noMessages": "Belum ada pesan. Jadilah yang pertama menyapa!",
+    "signInPrompt": "Silakan masuk untuk bergabung dalam percakapan. Jangan khawatir, data Anda aman bersama kami.",
+    "signInGoogle": "Masuk dengan Google",
+    "signInGithub": "Masuk dengan GitHub",
+    "signedInAs": "Masuk sebagai",
+    "signOut": "Keluar"
   },
   "footer": {
     "rights": "Hak cipta dilindungi.",

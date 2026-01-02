@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { FaCode, FaPaintBrush, FaBrain } from "react-icons/fa";
 import GridBackground from "@/components/GridBackground";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-const FlipCard = ({ icon: Icon, title, description }) => {
+const FlipCard = ({ icon: Icon, title, description, label }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     return (
@@ -32,7 +33,7 @@ const FlipCard = ({ icon: Icon, title, description }) => {
                     </h3>
                     <div className="w-12 h-1 bg-blue-500 rounded-full mt-4 mb-6"></div>
                     <p className="text-sm text-gray-500 uppercase tracking-widest font-medium">
-                        Service
+                        {label}
                     </p>
                 </div>
 
@@ -56,25 +57,23 @@ const FlipCard = ({ icon: Icon, title, description }) => {
 };
 
 export default function Service() {
+    const { t } = useTranslation();
+    
     const services = [
         {
             icon: FaCode,
-            title: "Web Dev",
-            description:
-                "Building responsive, high-performance websites using modern technologies like React, Node.js, and Tailwind CSS.",
+            title: t("service.webDev.title"),
+            description: t("service.webDev.description"),
         },
-
         {
             icon: FaPaintBrush,
-            title: "UI/UX Design",
-            description:
-                "Designing intuitive and visually appealing interfaces that prioritize user needs and enhance engagement.",
+            title: t("service.uiux.title"),
+            description: t("service.uiux.description"),
         },
         {
             icon: FaBrain,
-            title: "AI Solutions",
-            description:
-                "Implementing intelligent solutions using machine learning and deep learning algorithms to solve complex problems.",
+            title: t("service.ai.title"),
+            description: t("service.ai.description"),
         },
     ];
 
@@ -84,17 +83,16 @@ export default function Service() {
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-20 animate__animated animate__fadeInDown">
                     <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                        My <span className="text-blue-400">Services</span>
+                        {t("service.title")} <span className="text-blue-400">{t("service.titleHighlight")}</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-                        I offer a range of services to help you bring your ideas to life,
-                        from web development to AI-powered solutions.
+                        {t("service.subtitle")}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 animate__animated animate__fadeInUp animate__delay-0.5s px-4">
                     {services.map((service, index) => (
-                        <FlipCard key={index} {...service} />
+                        <FlipCard key={index} {...service} label={t("service.label")} />
                     ))}
                 </div>
             </div>

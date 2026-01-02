@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Github, Globe } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
+import { useTranslation } from "react-i18next";
 
 // --- ASSETS IMPORT ---
 import houseImg from "../../assets/images/pratinjau.png";
@@ -12,38 +13,34 @@ import dssImg from "../../assets/images/screenshot-main.png";
 import portfolioImg from "../../assets/images/portofolio.png";
 
 // --- PROJECT DATA ---
-const projects = [
+const getProjects = (t) => [
   {
-    title: "High Accuracy House Prediction",
-    description:
-      "An intelligent Machine Learning model designed to predict house prices with high accuracy by analyzing property features, location, and market trends.",
+    title: t("projects.items.house.title"),
+    description: t("projects.items.house.description"),
     src: houseImg,
     color: "#f59e0b", // Amber
     githubLink: "https://github.com/DimasTriM/prediksi_harga_rumah.git",
     liveLink: "#",
   },
   {
-    title: "Road Pothole Detection",
-    description:
-      "A Deep Learning-based Computer Vision system (YOLO) for real-time road damage detection to facilitate efficient infrastructure maintenance.",
+    title: t("projects.items.pothole.title"),
+    description: t("projects.items.pothole.description"),
     src: potholeImg,
     color: "#14b8a6", // Teal
     githubLink: "https://github.com/DimasTriM/pothole-detection.git",
     liveLink: "https://pothole-detection-yolov8.streamlit.app/",
   },
   {
-    title: "Decision Support System (DSS)",
-    description:
-      "An interactive Decision Support System designed to assist in selecting the best alternatives using complex data analysis methods WP (Weight Product).",
+    title: t("projects.items.dss.title"),
+    description: t("projects.items.dss.description"),
     src: dssImg,
     color: "#3b82f6", // Blue
     githubLink: "https://github.com/DimasTriM/proyek_spk_laptop.git",
     liveLink: "#",
   },
   {
-    title: "Modern Personal Portfolio",
-    description:
-      "A modern portfolio website built with React, Tailwind CSS, and Framer Motion, featuring smooth animations and a fully responsive design.",
+    title: t("projects.items.portfolio.title"),
+    description: t("projects.items.portfolio.description"),
     src: portfolioImg,
     color: "#8b5cf6", // Purple
     githubLink: "https://github.com/DimasTriM/modern-portfolio.git",
@@ -62,6 +59,7 @@ const fadeInUp = {
 };
 
 export default function Projects() {
+  const { t } = useTranslation();
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -119,7 +117,7 @@ export default function Projects() {
               variants={fadeInUp}
             >
               <h2 className="pt-10 text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-6">
-                Featured Projects
+                {t("projects.title")}
               </h2>
               <motion.p
                 className="text-gray-400 max-w-2xl mx-auto text-lg"
@@ -127,15 +125,14 @@ export default function Projects() {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-                Showcasing selected projects in AI Engineering and Web
-                Development.
+                {t("projects.subtitle")}
               </motion.p>
             </motion.div>
           </div>
 
           {/* Projects Loop */}
-          {projects.map((project, i) => {
-            const targetScale = 1 - (projects.length - i) * 0.05;
+          {getProjects(t).map((project, i) => {
+            const targetScale = 1 - (getProjects(t).length - i) * 0.05;
             return (
               <Card
                 key={`p_${i}`}
@@ -145,6 +142,7 @@ export default function Projects() {
                 progress={scrollYProgress}
                 range={[i * 0.25, 1]}
                 targetScale={targetScale}
+                t={t}
               />
             );
           })}
@@ -165,6 +163,7 @@ function Card({
   targetScale,
   githubLink,
   liveLink,
+  t,
 }) {
   const container = useRef(null);
   const scale = useTransform(progress, range, [1, targetScale]);
@@ -240,7 +239,7 @@ function Card({
                   whileHover={{ x: 3 }}
                 >
                   <Github size={20} />
-                  <span className="text-sm font-medium">Source Code</span>
+                  <span className="text-sm font-medium">{t("projects.sourceCode")}</span>
                 </motion.a>
 
                 {liveLink && liveLink !== "#" && (
@@ -253,7 +252,7 @@ function Card({
                     whileHover={{ x: 3 }}
                   >
                     <Globe size={20} />
-                    <span className="text-sm font-medium">Live Demo</span>
+                    <span className="text-sm font-medium">{t("projects.liveDemo")}</span>
                   </motion.a>
                 )}
               </div>

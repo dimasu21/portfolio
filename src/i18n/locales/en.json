@@ -42,7 +42,25 @@
   },
   "experience": {
     "title": "Journey",
-    "subtitle": "Transforming ideas into digital reality, one project at a time"
+    "subtitle": "Transforming ideas into digital reality, one project at a time",
+    "socialMedia": {
+      "title": "Social Media Specialist",
+      "company": "MyAvi Studio",
+      "period": "2022 - 2023",
+      "description": "Managed and curated engaging content while fostering online communities for clients worldwide."
+    },
+    "webDev": {
+      "title": "Website Developer",
+      "company": "Freelancer",
+      "period": "2022 - Present",
+      "description": "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs."
+    },
+    "aiEngineer": {
+      "title": "AI Engineer",
+      "company": "Dicoding Academy",
+      "period": "2021 - Present",
+      "description": "Studying AI Engineering at Dicoding Academy."
+    }
   },
   "certificate": {
     "title": "Certifications",
@@ -53,7 +71,43 @@
     "title": "Featured Projects",
     "subtitle": "Showcasing selected projects in AI Engineering and Web Development.",
     "sourceCode": "Source Code",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "items": {
+      "house": {
+        "title": "High Accuracy House Prediction",
+        "description": "An intelligent Machine Learning model designed to predict house prices with high accuracy by analyzing property features, location, and market trends."
+      },
+      "pothole": {
+        "title": "Road Pothole Detection",
+        "description": "A Deep Learning-based Computer Vision system (YOLO) for real-time road damage detection to facilitate efficient infrastructure maintenance."
+      },
+      "dss": {
+        "title": "Decision Support System (DSS)",
+        "description": "An interactive Decision Support System designed to assist in selecting the best alternatives using complex data analysis methods WP (Weight Product)."
+      },
+      "portfolio": {
+        "title": "Modern Personal Portfolio",
+        "description": "A modern portfolio website built with React, Tailwind CSS, and Framer Motion, featuring smooth animations and a fully responsive design."
+      }
+    }
+  },
+  "service": {
+    "title": "My",
+    "titleHighlight": "Services",
+    "subtitle": "I offer a range of services to help you bring your ideas to life, from web development to AI-powered solutions.",
+    "label": "Service",
+    "webDev": {
+      "title": "Web Dev",
+      "description": "Building responsive, high-performance websites using modern technologies like React, Node.js, and Tailwind CSS."
+    },
+    "uiux": {
+      "title": "UI/UX Design",
+      "description": "Designing intuitive and visually appealing interfaces that prioritize user needs and enhance engagement."
+    },
+    "ai": {
+      "title": "AI Solutions",
+      "description": "Implementing intelligent solutions using machine learning and deep learning algorithms to solve complex problems."
+    }
   },
   "contact": {
     "title": "Get in Touch",
@@ -82,17 +136,22 @@
     "locationValue": "Indonesia"
   },
   "guestbook": {
-    "title": "Guestbook",
-    "subtitle": "Leave a message for me! I'd love to hear from you.",
+    "title": "Chat Room",
+    "subtitle": "Feel free to share your thoughts, suggestions, questions, or anything else!",
     "leaveMessage": "Leave a Message",
     "name": "Your Name",
     "namePlaceholder": "Enter your name",
     "message": "Message",
-    "messagePlaceholder": "Write your message here...",
+    "messagePlaceholder": "Type your message...",
     "send": "Send Message",
     "sending": "Sending...",
     "recentMessages": "Recent Messages",
-    "noMessages": "No messages yet. Be the first to leave one!"
+    "noMessages": "No messages yet. Be the first to say hello!",
+    "signInPrompt": "Please sign in to join the conversation. Don't worry, your data is safe with us.",
+    "signInGoogle": "Sign in with Google",
+    "signInGithub": "Sign in with GitHub",
+    "signedInAs": "Signed in as",
+    "signOut": "Sign out"
   },
   "footer": {
     "rights": "All rights reserved.",

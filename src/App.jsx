@@ -12,12 +12,13 @@ import Guestbook from "./pages/Guestbook/Guestbook";
 import Footer from "./components/Footer";
 import CursorTrail from "./components/CursorTrail";
 import { Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
   const [isOnePage, setIsOnePage] = useState(false);
 
   return (
-    <>
+    <AuthProvider>
       <CursorTrail />
       <Header />
       {isOnePage ? (
@@ -41,6 +42,6 @@ export default function App() {
         </Routes>
       )}
       <Footer />
-    </>
+    </AuthProvider>
   );
 }
