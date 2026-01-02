@@ -47,7 +47,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#04081A] text-white py-12 md:py-16 border-t border-gray-800/50 relative">
+    <footer className="bg-[#04081A] text-white py-12 md:py-16 border-t border-gray-800/50 relative z-20 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Logo/Name Section - Gradient Text */}
         <div className="mb-8">
