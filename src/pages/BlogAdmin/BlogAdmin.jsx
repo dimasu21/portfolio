@@ -4,8 +4,8 @@ import { supabase } from "@/lib/supabase";
 import { FaPen, FaTrash, FaEye, FaEyeSlash, FaPlus, FaSave, FaTimes, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-// Admin secret - same as Guestbook
-const ADMIN_SECRET = "dimasu21admin";
+// Admin secret - simple password
+const ADMIN_SECRET = "dimasu";
 
 export default function BlogAdmin() {
   const [isAdmin, setIsAdmin] = useState(false);

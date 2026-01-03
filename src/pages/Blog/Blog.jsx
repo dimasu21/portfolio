@@ -2,15 +2,28 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Blog() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Get current year
   const currentYear = new Date().getFullYear();
+
+  // Keyboard shortcut: Ctrl+Shift+A to go to admin
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key === "A") {
+        e.preventDefault();
+        navigate("/admin/blog");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [navigate]);
 
   // Fetch published posts from Supabase
   useEffect(() => {

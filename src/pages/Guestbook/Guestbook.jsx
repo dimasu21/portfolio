@@ -7,8 +7,8 @@ import { useAuth } from "@/context/AuthContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import GridBackground from "@/components/GridBackground";
 
-// Secret admin key - change this to your own secret!
-const ADMIN_SECRET = "dimasu21admin";
+// Secret admin key
+const ADMIN_SECRET = "dimasu";
 
 const Guestbook = () => {
   const { t } = useTranslation();
