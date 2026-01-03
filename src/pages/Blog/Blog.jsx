@@ -44,7 +44,7 @@ export default function Blog() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 mb-6">
-            <FaBlog className="text-blue-400" />
+            <FaPen className="text-blue-400" />
             <span className="text-blue-400 font-medium">{t("blog.label")}</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
