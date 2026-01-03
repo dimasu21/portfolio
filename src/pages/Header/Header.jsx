@@ -186,6 +186,23 @@ export default function Header() {
                   )}
                 </div>
 
+                {/* Blog Link */}
+                <Link
+                  to="/blog"
+                  onClick={() => setActiveLink("blog")}
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium
+                    transition-all duration-300 flex items-center gap-2
+                    hover:bg-white/10 
+                    ${activeLink === "blog"
+                      ? "bg-white/15 text-white"
+                      : "text-gray-300 hover:text-white"
+                    }
+                  `}
+                >
+                  <FaBlog className={`text-base ${activeLink === "blog" ? "scale-110" : ""}`} />
+                  <span>{t("nav.blog")}</span>
+                </Link>
+
                 {/* Projects Link */}
                 <Link
                   to="/projects"
