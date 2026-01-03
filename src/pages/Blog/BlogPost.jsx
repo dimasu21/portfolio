@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { FaArrowLeft, FaArrowRight, FaTag } from "react-icons/fa";
 import parse from "html-react-parser";
+import BlogComments from "./BlogComments"; // Import comments
 import "@/assets/css/blog-content.css";
 
 export default function BlogPost() {
@@ -229,6 +230,9 @@ export default function BlogPost() {
             )}
 
           </div>
+
+          {/* Comments Section */}
+          <BlogComments postId={post.id} />
 
         </div>
 
