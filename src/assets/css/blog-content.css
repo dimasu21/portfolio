@@ -112,9 +112,9 @@
 }
 
 /* Font size helpers from Quill */
-.ql-size-small { font-size: 0.875rem; color: #9ca3af; }
-.ql-size-large { font-size: 1.5rem; line-height: 1.4; color: #f3f4f6; }
-.ql-size-huge { font-size: 2.25rem; line-height: 1.2; font-weight: 700; color: white; margin-top: 1.5rem; margin-bottom: 1rem; }
+.ql-size-small { font-size: 0.875rem !important; color: #9ca3af; line-height: 1.4 !important; }
+.ql-size-large { font-size: 1.5rem !important; line-height: 1.4 !important; color: #f3f4f6; margin-top: 1.5rem; margin-bottom: 0.5rem; display: block; }
+.ql-size-huge { font-size: 2.25rem !important; line-height: 1.2 !important; font-weight: 700; color: white; margin-top: 2rem; margin-bottom: 1rem; display: block; }
 
 /* Text alignment helpers from Quill */
 .ql-align-center { text-align: center; }
