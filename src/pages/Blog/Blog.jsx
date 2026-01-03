@@ -1,30 +1,46 @@
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { supabase } from "@/lib/supabase";
+import { Link } from "react-router-dom";
 
 export default function Blog() {
   const { t } = useTranslation();
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Get current year
   const currentYear = new Date().getFullYear();
 
-  // Blog posts - simple list with title and date
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Setting Up Zsh on Windows with Cygwin",
-      date: "December 29",
-    },
-    {
-      id: 2,
-      title: "Understanding How Computer Calculate Mathematical Equation",
-      date: "June 17",
-    },
-    {
-      id: 3,
-      title: "Functional Programming Quick Tour",
-      date: "March 30",
-    },
-  ];
+  // Fetch published posts from Supabase
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("published", true)
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setPosts(data || []);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+    });
+  };
 
   return (
     <main className="bg-[#020617] text-white min-h-screen pt-32 md:pt-40 pb-16">
@@ -68,25 +84,32 @@ export default function Blog() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative z-10 pt-8 space-y-6"
           >
-            {blogPosts.map((post, index) => (
-              <motion.a
-                key={post.id}
-                href="#"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="block group"
-              >
-                <div className="flex items-baseline gap-3 flex-wrap">
-                  <h2 className="text-lg sm:text-xl font-medium text-gray-300 group-hover:text-white transition-colors">
-                    {post.title}
-                  </h2>
-                  <span className="text-gray-600 text-sm">
-                    {post.date}
-                  </span>
-                </div>
-              </motion.a>
-            ))}
+            {isLoading ? (
+              <div className="text-gray-500 py-8">Loading posts...</div>
+            ) : posts.length === 0 ? (
+              <div className="text-gray-500 py-8">
+                {t("blog.comingSoon")}
+              </div>
+            ) : (
+              posts.map((post, index) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  className="block group"
+                >
+                  <Link to={`/blog/${post.slug}`} className="flex items-baseline gap-3 flex-wrap">
+                    <h2 className="text-lg sm:text-xl font-medium text-gray-300 group-hover:text-white transition-colors">
+                      {post.title}
+                    </h2>
+                    <span className="text-gray-600 text-sm">
+                      {formatDate(post.created_at)}
+                    </span>
+                  </Link>
+                </motion.div>
+              ))
+            )}
           </motion.div>
         </div>
       </div>
