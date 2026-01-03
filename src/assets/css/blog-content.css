@@ -3,10 +3,17 @@
   color: #d1d5db; /* gray-300 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.125rem; /* text-lg */
-  line-height: 1.5; /* Rapat */
+  line-height: 1.5;
   max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Desktop: Wider content area */
+@media (min-width: 768px) {
+  .blog-content {
+    max-width: 75ch;
+  }
 }
 
 /* 
@@ -83,10 +90,24 @@ span.ql-size-large, span.ql-size-huge {
 .blog-content .ql-align-right { text-align: right; }
 .blog-content .ql-align-justify { 
   text-align: justify;
-  text-justify: inter-word; /* Browser modern */
-  hyphens: auto; /* Potong kata otomatis */
-  -webkit-hyphens: auto;
-  word-break: break-word; /* Cegah kata terlalu panjang */
+  text-justify: inter-word;
+  word-break: break-word;
+}
+
+/* Desktop: Disable hyphenation since wider text doesn't need it */
+@media (min-width: 768px) {
+  .blog-content .ql-align-justify {
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+}
+
+/* Mobile: Allow hyphenation for narrow screens */
+@media (max-width: 767px) {
+  .blog-content .ql-align-justify {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
 }
 
 /* Horizontal Rule (Divider) */
