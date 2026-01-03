@@ -43,10 +43,6 @@ export default function Blog() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 mb-6">
-            <FaPen className="text-blue-400" />
-            <span className="text-blue-400 font-medium">{t("blog.label")}</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
               {t("blog.title")}
