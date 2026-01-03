@@ -81,3 +81,11 @@ span.ql-size-large, span.ql-size-huge {
   -webkit-hyphens: auto;
   word-break: break-word; /* Cegah kata terlalu panjang */
 }
+
+/* Horizontal Rule (Divider) */
+.blog-content hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(45, 212, 191, 0.5), transparent); /* Teal Gradient */
+  margin: 2rem 0;
+}

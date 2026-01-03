@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/context/AuthContext";
 import { FaPen, FaTrash, FaEye, FaEyeSlash, FaGoogle, FaGithub, FaPlus, FaSave, FaTimes, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Loader2, LogOut, Image as ImageIcon, SplitSquareHorizontal } from "lucide-react";
+import { Loader2, LogOut, Image as ImageIcon, SplitSquareHorizontal, Minus } from "lucide-react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -169,6 +169,15 @@ export default function BlogAdmin() {
   // Insert Page Break
   const insertPageBreak = () => {
     const marker = `<p class="text-center font-bold text-gray-500 my-4">__________PAGE_BREAK__________</p>`;
+    setFormData(prev => ({
+      ...prev,
+      content: prev.content + marker
+    }));
+  };
+
+  // Insert Divider (Horizontal Rule)
+  const insertDivider = () => {
+    const marker = `<hr class="my-8" />`;
     setFormData(prev => ({
       ...prev,
       content: prev.content + marker
@@ -483,6 +492,14 @@ export default function BlogAdmin() {
                 >
                   <SplitSquareHorizontal size={14} />
                   Insert Page Break
+                </button>
+                <button
+                  type="button"
+                  onClick={insertDivider}
+                  className="text-xs flex items-center gap-1 text-teal-400 hover:text-teal-300 transition-colors ml-4"
+                >
+                  <Minus size={14} />
+                  Insert Divider
                 </button>
               </div>
               <div className="bg-white text-gray-900 rounded-xl overflow-hidden">
