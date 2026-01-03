@@ -1,72 +1,122 @@
-/* Typography for Blog Content (Rich Text) */
+/* Typography for Blog Content (Rich Text) - Andka.id Style */
 .blog-content {
-  color: #e5e7eb; /* gray-200 */
-  font-size: 1.125rem; /* text-lg */
-  line-height: 1.75;
+  color: #d1d5db; /* gray-300 - lebih soft dari pure white */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem; /* text-lg (18px) */
+  line-height: 1.8; /* Relaxed line height for readability */
+  max-width: 65ch; /* Optimal reading width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Reduced margins to allow manual spacing via Enter key */
+/* Paragraphs */
 .blog-content p {
-  margin-bottom: 0.5rem; /* Was 1.5rem */
+  margin-bottom: 1.25rem; /* Jarak antar paragraf yang nyaman */
+  letter-spacing: -0.01em;
 }
 
+/* Headings */
 .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
   color: white;
   font-weight: 700;
-  margin-top: 1.5rem; /* Was 2.5rem */
-  margin-bottom: 0.5rem; /* Was 1rem */
+  margin-top: 3rem; /* Jarak header dari konten atasnya jauh (visual separation) */
+  margin-bottom: 1rem;
   line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 .blog-content h1 { font-size: 2.25rem; }
-.blog-content h2 { font-size: 1.875rem; }
+.blog-content h2 { font-size: 1.875rem; border-bottom: 1px solid #374151; padding-bottom: 0.5rem; } /* Ada garis bawah halus di H2 */
 .blog-content h3 { font-size: 1.5rem; }
 
-.blog-content strong {
-  font-weight: 700;
-  color: white;
-}
+/* Bold & Italic */
+.blog-content strong { font-weight: 700; color: #f3f4f6; } /* gray-100 */
+.blog-content em { font-style: italic; color: #9ca3af; }
 
-.blog-content em {
-  font-style: italic;
-}
-
+/* Links */
 .blog-content a {
   color: #60a5fa; /* blue-400 */
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.4);
+  transition: all 0.2s;
 }
 
+.blog-content a:hover {
+  border-bottom-color: #60a5fa;
+  color: #93c5fd;
+}
+
+/* Lists */
 .blog-content ul, .blog-content ol {
-  margin-bottom: 0.5rem; /* Was 1.5rem */
+  margin-bottom: 1.5rem;
   padding-left: 1.5rem;
+  color: #d1d5db;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem; /* Jarak antar item list */
+  padding-left: 0.5rem;
 }
 
 .blog-content ul { list-style-type: disc; }
 .blog-content ol { list-style-type: decimal; }
 
+/* Blockquote */
 .blog-content blockquote {
-  border-left: 4px solid #3b82f6; /* blue-500 */
-  padding-left: 1rem;
+  border-left: 3px solid #3b82f6; /* blue-500 */
+  padding-left: 1.25rem;
   margin-left: 0;
   color: #9ca3af; /* gray-400 */
   font-style: italic;
-  margin-bottom: 1rem; /* Was 1.5rem */
+  margin-bottom: 2rem;
+  background: rgba(59, 130, 246, 0.05); /* Sedikit background biru transparan */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
+/* Images */
 .blog-content img {
   border-radius: 0.75rem;
-  margin: 1rem 0; /* Was 2rem 0 */
+  margin: 2.5rem auto; /* Center alignment & vertical spacing */
   max-width: 100%;
   height: auto;
-  display: block; /* Fix inline spacing issues */
+  display: block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Text alignment helpers from Quill */
-.ql-align-center { text-align: center; }
-.ql-align-right { text-align: right; }
-.ql-align-justify { text-align: justify; }
+/* Code Blocks (Pre & Code) */
+.blog-content pre {
+  background-color: #111827; /* gray-900 */
+  border: 1px solid #374151; /* gray-700 */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+
+.blog-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Inline code needs specific styling if not inside pre */
+.blog-content :not(pre) > code {
+  background-color: rgba(55, 65, 81, 0.5); /* gray-700 with opacity */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  color: #fca5a5; /* red-300 for inline code highlight */
+}
 
 /* Font size helpers from Quill */
 .ql-size-small { font-size: 0.875rem; color: #9ca3af; }
 .ql-size-large { font-size: 1.5rem; line-height: 1.4; color: #f3f4f6; }
 .ql-size-huge { font-size: 2.25rem; line-height: 1.2; font-weight: 700; color: white; margin-top: 1.5rem; margin-bottom: 1rem; }
+
+/* Text alignment helpers from Quill */
+.ql-align-center { text-align: center; }
+.ql-align-right { text-align: right; }
+.ql-align-justify { text-align: justify; }
