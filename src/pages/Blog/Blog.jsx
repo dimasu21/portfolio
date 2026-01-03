@@ -10,8 +10,7 @@ export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Get current year
-  const currentYear = new Date().getFullYear();
+
 
   // Keyboard shortcut: Ctrl+Shift+B to go to admin
   useEffect(() => {
@@ -50,6 +49,7 @@ export default function Blog() {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
+      year: "numeric",
       month: "long",
       day: "numeric",
     });
@@ -79,16 +79,7 @@ export default function Blog() {
 
         {/* Year Background + Posts */}
         <div className="relative">
-          {/* Year in background - outline only */}
-          <div 
-            className="absolute -left-4 sm:-left-8 top-0 text-[7rem] sm:text-[10rem] font-black leading-none select-none pointer-events-none -z-0 tracking-tight"
-            style={{
-              WebkitTextStroke: '1px rgba(75, 85, 99, 0.4)',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            {currentYear}
-          </div>
+
 
           {/* Blog Posts List */}
           <motion.div
@@ -112,11 +103,11 @@ export default function Blog() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   className="block group"
                 >
-                  <Link to={`/blog/${post.slug}`} className="flex items-baseline gap-3 flex-wrap">
-                    <h2 className="text-lg sm:text-xl font-medium text-gray-300 group-hover:text-white transition-colors">
+                  <Link to={`/blog/${post.slug}`} className="block">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-200 group-hover:text-white transition-colors mb-1">
                       {post.title}
                     </h2>
-                    <span className="text-gray-600 text-sm">
+                    <span className="text-gray-500 text-sm">
                       {formatDate(post.created_at)}
                     </span>
                   </Link>
