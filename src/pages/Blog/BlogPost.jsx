@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { FaArrowLeft, FaArrowRight, FaTag } from "react-icons/fa";
@@ -10,7 +10,13 @@ import "@/assets/css/blog-content.css";
 export default function BlogPost() {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const currentPage = parseInt(searchParams.get("page") || "1", 10);
+
   const [post, setPost] = useState(null);
+  const [paginatedContent, setPaginatedContent] = useState("");
+  const [totalPages, setTotalPages] = useState(1);
+  
   const [nextPost, setNextPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -38,26 +44,15 @@ export default function BlogPost() {
 
       setPost(currentPost);
 
-      // 2. Fetch Next Post (Newer than current)
-      // Note: "Next" logic depends on order. Usually "Next" means "Newer post" or "Next in reading list".
-      // Let's assume Next = Newer post.
+      // 2. Fetch Next Post logic (remains here)
       const { data: nextData } = await supabase
         .from("blog_posts")
         .select("title, slug")
         .eq("published", true)
-        .gt("created_at", currentPost.created_at) // Newer than current
-        .order("created_at", { ascending: true }) // Get the immediate next one
+        .gt("created_at", currentPost.created_at)
+        .order("created_at", { ascending: true })
         .limit(1)
         .single();
-      
-      // If no newer post, maybe get older? 
-      // Usually "Next" = Newer, "Prev" = Older. User requested "Next" and "Back".
-      // Let's stick to Next = Newer for now. If null, maybe we try Older?
-      // Actually common pattern: 
-      // Left: Previous (Older)
-      // Right: Next (Newer)
-      // User asked for: "Back to Blog" (Left) and "Next" (Right).
-      // So let's fetch the IMMEDIATE NEXT NEWER post.
 
       setNextPost(nextData);
 
@@ -68,6 +63,23 @@ export default function BlogPost() {
       setIsLoading(false);
     }
   };
+
+  // Effect to handle pagination when post or page changes
+  useEffect(() => {
+    if (!post) return;
+
+    const rawContent = post.content || "";
+    const delimiterRegex = /<p[^>]*>__________PAGE_BREAK__________<\/p>/g;
+    const parts = rawContent.split(delimiterRegex);
+    
+    setTotalPages(parts.length);
+
+    if (currentPage > parts.length) {
+       setPaginatedContent(parts[parts.length - 1]);
+    } else {
+       setPaginatedContent(parts[currentPage - 1]);
+    }
+  }, [post, currentPage]);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -172,8 +184,54 @@ export default function BlogPost() {
            transition={{ delay: 0.4 }}
            className="blog-content w-full mb-16"
         >
-          {parse(post.content)}
+          {parse(paginatedContent)}
         </motion.div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mb-16">
+            {/* Prev Page */}
+            {currentPage > 1 && (
+              <Link 
+                to={`/blog/${slug}?page=${currentPage - 1}`}
+                className="px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg text-white hover:bg-gray-800 transition-colors"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Previous
+              </Link>
+            )}
+
+            {/* Page Numbers */}
+            {[...Array(totalPages)].map((_, i) => {
+              const p = i + 1;
+              return (
+                <Link
+                  key={p}
+                  to={`/blog/${slug}?page=${p}`}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg border transition-colors ${
+                    p === currentPage
+                      ? "bg-blue-600 border-blue-600 text-white font-bold"
+                      : "bg-gray-900 border-gray-800 text-gray-400 hover:bg-gray-800 hover:text-white"
+                  }`}
+                >
+                  {p}
+                </Link>
+              );
+            })}
+
+            {/* Next Page */}
+            {currentPage < totalPages && (
+              <Link 
+                to={`/blog/${slug}?page=${currentPage + 1}`}
+                className="px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg text-white hover:bg-gray-800 transition-colors"
+                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Next
+              </Link>
+            )}
+          </div>
+        )}
 
         {/* Footer Section */}
         <div className="max-w-[65ch] mx-auto">

@@ -2,9 +2,9 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/context/AuthContext";
-import { FaPen, FaTrash, FaEye, FaEyeSlash, FaPlus, FaSave, FaTimes, FaArrowLeft, FaGoogle, FaGithub } from "react-icons/fa";
+import { FaPen, FaTrash, FaEye, FaEyeSlash, FaGoogle, FaGithub, FaPlus, FaSave, FaTimes, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Loader2, LogOut } from "lucide-react";
+import { Loader2, LogOut, Image as ImageIcon, SplitSquareHorizontal } from "lucide-react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -164,6 +164,15 @@ export default function BlogAdmin() {
         }
       }
     };
+  };
+
+  // Insert Page Break
+  const insertPageBreak = () => {
+    const marker = `<p class="text-center font-bold text-gray-500 my-4">__________PAGE_BREAK__________</p>`;
+    setFormData(prev => ({
+      ...prev,
+      content: prev.content + marker
+    }));
   };
 
   const modules = useMemo(
@@ -465,9 +474,18 @@ export default function BlogAdmin() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm text-gray-400 mb-2">Content</label>
-                <div className="bg-white text-gray-900 rounded-xl overflow-hidden">
+              <div className="flex justify-between items-end mb-2">
+                <label className="block text-sm text-gray-400">Content</label>
+                <button
+                  type="button"
+                  onClick={insertPageBreak}
+                  className="text-xs flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  <SplitSquareHorizontal size={14} />
+                  Insert Page Break
+                </button>
+              </div>
+              <div className="bg-white text-gray-900 rounded-xl overflow-hidden">
                   <ReactQuill
                     ref={quillRef}
                     value={formData.content}
@@ -478,7 +496,6 @@ export default function BlogAdmin() {
                     className="h-96 mb-12" // mb-12 for toolbar space
                   />
                 </div>
-              </div>
 
               <div className="flex items-center gap-3 pt-6">
                 <input
