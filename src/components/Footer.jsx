@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
+import { FaLock } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
@@ -107,6 +108,9 @@ const Footer = () => {
         {/* Copyright */}
         <p className="text-xs text-gray-500">
           © 2026 Dimas Tri M. {t("footer.rights")}
+          <Link to="/admin/blog" className="ml-2 inline-block opacity-10 hover:opacity-100 transition-opacity">
+            <FaLock size={10} />
+          </Link>
         </p>
       </div>
 
