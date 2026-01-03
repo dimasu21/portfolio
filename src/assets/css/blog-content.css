@@ -3,7 +3,7 @@
   color: #d1d5db; /* gray-300 - lebih soft dari pure white */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.125rem; /* text-lg (18px) */
-  line-height: 1.8; /* Relaxed line height for readability */
+  line-height: 1.6; /* Reduced from 1.8 for tighter text */
   max-width: 65ch; /* Optimal reading width */
   margin-left: auto;
   margin-right: auto;
@@ -11,7 +11,7 @@
 
 /* Paragraphs */
 .blog-content p {
-  margin-bottom: 1.25rem; /* Jarak antar paragraf yang nyaman */
+  margin-bottom: 0.6rem; /* Tight spacing, use Enter for more gap */
   letter-spacing: -0.01em;
 }
 
