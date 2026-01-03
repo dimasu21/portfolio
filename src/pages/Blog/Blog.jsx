@@ -51,7 +51,7 @@ export default function Blog() {
         {/* Year Background + Posts */}
         <div className="relative">
           {/* Year in background */}
-          <div className="absolute left-0 top-0 text-[8rem] sm:text-[12rem] font-bold text-gray-800/20 leading-none select-none pointer-events-none -z-0">
+          <div className="absolute -left-4 sm:-left-8 top-0 text-[7rem] sm:text-[10rem] font-black text-gray-800/30 leading-none select-none pointer-events-none -z-0 tracking-tight">
             {currentYear}
           </div>
 
