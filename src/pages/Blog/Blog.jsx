@@ -13,10 +13,10 @@ export default function Blog() {
   // Get current year
   const currentYear = new Date().getFullYear();
 
-  // Keyboard shortcut: Ctrl+Shift+A to go to admin
+  // Keyboard shortcut: Ctrl+Shift+B to go to admin
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key === "A") {
+      if (e.ctrlKey && e.shiftKey && e.key === "B") {
         e.preventDefault();
         navigate("/admin/blog");
       }
