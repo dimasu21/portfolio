@@ -108,6 +108,10 @@ const Footer = () => {
         {/* Copyright */}
         <p className="text-xs text-gray-500">
           © 2021 - Present Dimas Tri M. {t("footer.rights")}
+          <span className="mx-2">|</span>
+          <Link to="/privacy" className="hover:text-teal-400 transition-colors">{t("footer.privacy")}</Link>
+          <span className="mx-2">•</span>
+          <Link to="/disclaimer" className="hover:text-teal-400 transition-colors">{t("footer.disclaimer")}</Link>
           <Link to="/admin/blog" className="ml-3 inline-flex items-center text-gray-600 hover:text-teal-400 transition-colors" aria-label="Admin Access">
             <FaKey size={12} />
           </Link>

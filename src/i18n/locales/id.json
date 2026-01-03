@@ -167,10 +167,27 @@
     "signOut": "Keluar",
     "signInToComment": "Masuk untuk berkomentar"
   },
+  "privacy": {
+    "title": "Kebijakan Privasi",
+    "intro": "Kami menghargai privasi Anda. Portofolio ini adalah demonstrasi karya dan keahlian saya. Berikut cara kami menangani data:",
+    "dataCollection": "Kami tidak mengumpulkan data pribadi pengunjung. Otentikasi (Google/GitHub) hanya digunakan untuk fitur Buku Tamu/Komentar guna mencegah spam.",
+    "auth": "Otentikasi ditangani oleh Supabase. Kami hanya menyimpan email dan nama Anda untuk menampilkan komentar Anda. Kami tidak menjual atau membagikan data ini.",
+    "cookies": "Kami menggunakan cookie minimal yang diperlukan untuk otentikasi dan fungsionalitas situs yang melibatkan Supabase.",
+    "contact": "Jika Anda memiliki pertanyaan, silakan hubungi saya melalui formulir di halaman Kontak."
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "intro": "Situs web ini adalah portofolio pribadi dan blog.",
+    "educational": "Beberapa konten ditujukan untuk tujuan pendidikan. Cuplikan kode disediakan 'sebagaimana adanya' tanpa jaminan.",
+    "guarantee": "Meskipun saya berusaha untuk akurasi, saya tidak dapat menjamin bahwa semua informasi benar-benar mutakhir atau bebas kesalahan.",
+    "links": "Situs ini berisi tautan ke situs web eksternal (misalnya GitHub, LinkedIn). Saya tidak bertanggung jawab atas konten situs eksternal tersebut."
+  },
   "footer": {
     "rights": "Hak cipta dilindungi.",
     "builtWith": "Dibuat dengan",
-    "visits": "kunjungan"
+    "visits": "kunjungan",
+    "privacy": "Kebijakan Privasi",
+    "disclaimer": "Disclaimer"
   },
   "github": {
     "title": "Statistik GitHub"

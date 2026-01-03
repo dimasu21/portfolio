@@ -12,6 +12,8 @@ import Guestbook from "./pages/Guestbook/Guestbook";
 import Blog from "./pages/Blog/Blog";
 import BlogPost from "./pages/Blog/BlogPost";
 import BlogAdmin from "./pages/BlogAdmin/BlogAdmin";
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
+import Disclaimer from "./pages/Legal/Disclaimer";
 import Footer from "./components/Footer";
 import CursorTrail from "./components/CursorTrail";
 import { Route, Routes } from "react-router-dom";
@@ -45,6 +47,8 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/service" element={<Service />} />
           <Route path="/guestbook" element={<Guestbook />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
       )}
       <Footer />

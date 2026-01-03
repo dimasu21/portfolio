@@ -167,10 +167,27 @@
     "signOut": "Sign out",
     "signInToComment": "Sign in to comment"
   },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "We value your privacy. This portfolio is a demonstration of my work and skills. Here is how we handle data:",
+    "dataCollection": "We do not collect personal data from visitors. Authentication (Google/GitHub) is used solely for the Guestbook/Comments feature to prevent spam.",
+    "auth": "Authentication is handled by Supabase. We only store your email and name to display your comments. We do not sell or share this data.",
+    "cookies": "We use minimal cookies necessary for authentication and site functionality involved with Supabase.",
+    "contact": "If you have questions, please contact me via the form on the Contact page."
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "intro": "This website is a personal portfolio and blog.",
+    "educational": "Some content is for educational purposes. Code snippets are provided 'as is' without warranty.",
+    "guarantee": "While I strive for accuracy, I cannot guarantee that all information is perfectly up to date or error-free.",
+    "links": "This site contains links to external websites (e.g. GitHub, LinkedIn). I am not responsible for the content of those external sites."
+  },
   "footer": {
     "rights": "All rights reserved.",
     "builtWith": "Built with",
-    "visits": "visits"
+    "visits": "visits",
+    "privacy": "Privacy Policy",
+    "disclaimer": "Disclaimer"
   },
   "github": {
     "title": "GitHub Statistics"
