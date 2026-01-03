@@ -35,7 +35,7 @@
 .blog-content h3 { font-size: 1.5rem; }
 
 /* Font Sizes - TARGET SEMUA DIGUNAKAN */
-.blog-content .ql-size-small { font-size: 0.875rem !important; line-height: 1.4 !important; color: #d1d5db !important; font-style: italic; }
+.blog-content .ql-size-small { font-size: 0.875rem !important; line-height: 1.4 !important; color: #9ca3af !important; }
 .blog-content .ql-size-large { font-size: 1.5rem !important; line-height: 1.3 !important; color: #f3f4f6; font-weight: 600; display: block; margin-top: 1rem; margin-bottom: 0.5rem;}
 .blog-content .ql-size-huge { font-size: 2.5rem !important; line-height: 1.1 !important; font-weight: 800; color: white; display: block; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: none !important;}
 
@@ -71,22 +71,11 @@ span.ql-size-large, span.ql-size-huge {
   display: block;
 }
 
-/* Image Captions - Italic text below images */
-.blog-content img + p,
-.blog-content img + em,
-.blog-content p:has(> em:only-child) {
-  text-align: center;
+/* Image Captions - Only for centered small text (user must apply center alignment) */
+.blog-content .ql-align-center.ql-size-small,
+.blog-content .ql-align-center .ql-size-small {
   font-style: italic;
-  color: #9ca3af; /* gray-400 */
-  font-size: 0.875rem;
-  margin-top: 0.5rem !important;
-}
-
-/* Ensure italic text is always visible */
-.blog-content em,
-.blog-content i {
-  color: #9ca3af; /* gray-400 - visible on dark bg */
-  font-style: italic;
+  color: #9ca3af !important; /* gray-400 */
 }
 
 /* Text alignment */
