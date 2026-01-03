@@ -1,24 +1,38 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const FlipWords = ({ words, duration = 3000, className }) => {
-  const [currentWord, setCurrentWord] = useState(words[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const wordsRef = useRef(words);
 
-  // thanks for the fix Julian - https://github.com/Julian-AT
+  // Reset to first word when words array changes (language switch)
+  useEffect(() => {
+    // Check if words actually changed (not just reference)
+    const wordsChanged = JSON.stringify(wordsRef.current) !== JSON.stringify(words);
+    if (wordsChanged) {
+      wordsRef.current = words;
+      setCurrentIndex(0);
+      setIsAnimating(false);
+    }
+  }, [words]);
+
+  const currentWord = words[currentIndex] || words[0];
+
   const startAnimation = useCallback(() => {
-    const word = words[words.indexOf(currentWord) + 1] || words[0];
-    setCurrentWord(word);
+    setCurrentIndex((prev) => (prev + 1) % words.length);
     setIsAnimating(true);
-  }, [currentWord, words]);
+  }, [words.length]);
 
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
+    if (!isAnimating) {
+      const timer = setTimeout(() => {
         startAnimation();
       }, duration);
+      return () => clearTimeout(timer);
+    }
   }, [isAnimating, duration, startAnimation]);
 
   return (
@@ -53,12 +67,11 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
           "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
           className
         )}
-        key={currentWord}
+        key={`${currentIndex}-${currentWord}`}
       >
-        {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
-            key={word + wordIndex}
+            key={`word-${currentIndex}-${wordIndex}`}
             initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{
@@ -69,7 +82,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
           >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
-                key={word + letterIndex}
+                key={`letter-${currentIndex}-${wordIndex}-${letterIndex}`}
                 initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{

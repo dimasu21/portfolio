@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
 import "@/assets/css/tomorrow.css";
@@ -14,13 +14,15 @@ import { useTranslation } from "react-i18next";
 
 
 export default function Hero() {
-  const { t } = useTranslation();
-  const words = [
+  const { t, i18n } = useTranslation();
+  
+  // Memoize words array to prevent unnecessary re-renders and ensure proper language switch
+  const words = useMemo(() => [
     t("hero.role1"),
     t("hero.role2"),
     t("hero.role3"),
     t("hero.role4"),
-  ];
+  ], [i18n.language, t]);
 
   const [code] = useState(`
 const profile = {
