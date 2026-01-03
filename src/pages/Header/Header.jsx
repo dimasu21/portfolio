@@ -81,7 +81,6 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden px-2">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-lg" />
                 <span className="text-white font-bold text-lg">Dimas Tri M</span>
               </Link>
               <div className="flex items-center gap-2">
