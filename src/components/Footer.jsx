@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
-import { FaLock } from "react-icons/fa";
+import { FaKey } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router-dom";
 import VisitCounter from "./VisitCounter";
@@ -108,8 +108,8 @@ const Footer = () => {
         {/* Copyright */}
         <p className="text-xs text-gray-500">
           © 2026 Dimas Tri M. {t("footer.rights")}
-          <Link to="/admin/blog" className="ml-2 inline-block opacity-10 hover:opacity-100 transition-opacity">
-            <FaLock size={10} />
+          <Link to="/admin/blog" className="ml-3 inline-flex items-center text-gray-600 hover:text-teal-400 transition-colors" aria-label="Admin Access">
+            <FaKey size={12} />
           </Link>
         </p>
       </div>
