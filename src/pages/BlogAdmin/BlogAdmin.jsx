@@ -169,6 +169,7 @@ export default function BlogAdmin() {
       toolbar: {
         container: [
           [{ header: [1, 2, 3, false] }],
+          [{ size: ["small", false, "large", "huge"] }], // Font size
           ["bold", "italic", "underline", "strike", "blockquote"],
           [{ list: "ordered" }, { list: "bullet" }],
           [{ align: [] }], // Text alignment

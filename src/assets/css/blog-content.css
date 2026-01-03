@@ -63,3 +63,8 @@
 .ql-align-center { text-align: center; }
 .ql-align-right { text-align: right; }
 .ql-align-justify { text-align: justify; }
+
+/* Font size helpers from Quill */
+.ql-size-small { font-size: 0.875rem; color: #9ca3af; }
+.ql-size-large { font-size: 1.5rem; line-height: 1.4; color: #f3f4f6; }
+.ql-size-huge { font-size: 2.25rem; line-height: 1.2; font-weight: 700; color: white; margin-top: 1.5rem; margin-bottom: 1rem; }
