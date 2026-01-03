@@ -43,16 +43,16 @@ export default function Header() {
   const mainNavLinks = [
     { id: "home", icon: FaHome, textKey: "nav.home", path: "/" },
     { id: "projects", icon: FaLaptopCode, textKey: "nav.projects", path: "/projects" },
-    { id: "guestbook", icon: FaComments, textKey: "nav.guestbook", path: "/guestbook" },
     { id: "contact", icon: FaEnvelope, textKey: "nav.contact", path: "/contact" },
   ];
 
-  // Dropdown links (Skills, Experience, Certificate, Service)
+  // Dropdown links (Skills, Experience, Certificate, Service, Guestbook)
   const dropdownLinks = [
     { id: "skills", icon: FaCode, textKey: "nav.skills", path: "/skills" },
     { id: "experience", icon: FaBriefcase, textKey: "nav.experience", path: "/experience" },
     { id: "certificate", icon: FaGraduationCap, textKey: "nav.certificate", path: "/certificate" },
     { id: "service", icon: FaConciergeBell, textKey: "nav.service", path: "/service" },
+    { id: "guestbook", icon: FaComments, textKey: "nav.guestbook", path: "/guestbook" },
   ];
 
   // All links for mobile menu
@@ -200,22 +200,7 @@ export default function Header() {
                   <span>{t("nav.projects")}</span>
                 </Link>
 
-                {/* Guestbook Link */}
-                <Link
-                  to="/guestbook"
-                  onClick={() => setActiveLink("guestbook")}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium
-                    transition-all duration-300 flex items-center gap-2
-                    hover:bg-white/10 
-                    ${activeLink === "guestbook"
-                      ? "bg-white/15 text-white"
-                      : "text-gray-300 hover:text-white"
-                    }
-                  `}
-                >
-                  <FaComments className={`text-base ${activeLink === "guestbook" ? "scale-110" : ""}`} />
-                  <span>{t("nav.guestbook")}</span>
-                </Link>
+
 
                 {/* Contact Link */}
                 <Link
