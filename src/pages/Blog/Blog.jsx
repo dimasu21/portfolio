@@ -50,8 +50,14 @@ export default function Blog() {
 
         {/* Year Background + Posts */}
         <div className="relative">
-          {/* Year in background */}
-          <div className="absolute -left-4 sm:-left-8 top-0 text-[7rem] sm:text-[10rem] font-black text-gray-800/30 leading-none select-none pointer-events-none -z-0 tracking-tight">
+          {/* Year in background - outline only */}
+          <div 
+            className="absolute -left-4 sm:-left-8 top-0 text-[7rem] sm:text-[10rem] font-black leading-none select-none pointer-events-none -z-0 tracking-tight"
+            style={{
+              WebkitTextStroke: '1px rgba(75, 85, 99, 0.4)',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
             {currentYear}
           </div>
 
