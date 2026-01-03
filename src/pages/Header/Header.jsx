@@ -64,7 +64,6 @@ export default function Header() {
                 <span className="text-white font-bold text-lg">Dimas Tri M</span>
               </Link>
               <div className="flex items-center gap-2">
-                <LanguageSwitcher />
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="text-white p-2"
