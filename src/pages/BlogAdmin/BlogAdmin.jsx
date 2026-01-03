@@ -25,6 +25,7 @@ export default function BlogAdmin() {
     content: "",
     excerpt: "",
     published: false,
+    created_at: "", // Add this
   });
   const [isSaving, setIsSaving] = useState(false);
   const quillRef = useRef(null);
@@ -109,6 +110,7 @@ export default function BlogAdmin() {
       content: "",
       excerpt: "",
       published: false,
+      created_at: "",
     });
     setCurrentPost(null);
     setIsEditing(false);
@@ -122,6 +124,7 @@ export default function BlogAdmin() {
       content: post.content,
       excerpt: post.excerpt || "",
       published: post.published,
+      created_at: post.created_at ? new Date(post.created_at).toISOString().slice(0, 16) : "",
     });
     setIsEditing(true);
   };
@@ -199,6 +202,7 @@ export default function BlogAdmin() {
             excerpt: formData.excerpt,
             published: formData.published,
             updated_at: new Date().toISOString(),
+            created_at: formData.created_at ? new Date(formData.created_at).toISOString() : currentPost.created_at,
           })
           .eq("id", currentPost.id);
 
@@ -211,6 +215,7 @@ export default function BlogAdmin() {
             content: formData.content, // Now stores HTML
             excerpt: formData.excerpt,
             published: formData.published,
+            created_at: formData.created_at ? new Date(formData.created_at).toISOString() : new Date().toISOString(),
           },
         ]);
 
@@ -431,6 +436,17 @@ export default function BlogAdmin() {
                   placeholder="Short description..."
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">Publish Date (Optional)</label>
+                <input
+                  type="datetime-local"
+                  value={formData.created_at}
+                  onChange={(e) => setFormData({ ...formData, created_at: e.target.value })}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
+                />
+                <p className="text-xs text-gray-500 mt-1">Leave empty to use current time</p>
               </div>
 
               <div>
