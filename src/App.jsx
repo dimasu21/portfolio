@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <CursorTrail />
+      {/* <CursorTrail /> */}
       <Header />
       {isOnePage ? (
         <>
