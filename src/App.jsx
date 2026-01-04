@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/css/index.css";
 import Experience from "./pages/Experience/Experience";
 import Contact from "./pages/Contact/Contact";
@@ -22,10 +22,23 @@ import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
   const [isOnePage, setIsOnePage] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Prevent flickering by waiting for initial render to complete
+  useEffect(() => {
+    // Small delay to ensure scroll position is set before showing content
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 50);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <AuthProvider>
       <ScrollToTop />
+      <div 
+        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      >
       {/* <CursorTrail /> */}
       <Header />
       {isOnePage ? (
@@ -54,6 +67,7 @@ export default function App() {
         </Routes>
       )}
       <Footer />
+      </div>
     </AuthProvider>
   );
 }
