@@ -7,7 +7,7 @@ const GitHubStats = ({ username = "dimasu21" }) => {
   
   return (
     <div className="w-full py-8">
-      <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+      <h3 className="text-2xl font-bold text-center mb-8 gradient-text">
         {t("github.title")}
       </h3>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-4 flex-wrap">

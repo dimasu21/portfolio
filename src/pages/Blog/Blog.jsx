@@ -65,7 +65,7 @@ export default function Blog() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-2 inline">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-2 inline gradient-text">
             {t("blog.title")}
           </h1>
           <span className="text-gray-500 text-lg ml-3">

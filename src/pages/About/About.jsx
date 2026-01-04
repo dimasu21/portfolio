@@ -54,7 +54,7 @@ export default function About() {
           
           {/* Interactive Terminal */}
           <div className="pt-8">
-            <h3 className="text-2xl font-bold text-center mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold text-center mb-4 gradient-text">
               {t("about.terminalTitle")}
             </h3>
             <p className="text-gray-400 text-center mb-6">

@@ -102,7 +102,7 @@ export default function Testimonials() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
               {t("testimonials.title")}
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">

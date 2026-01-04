@@ -120,7 +120,7 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+                <h2 className="text-4xl font-bold mb-4 gradient-text">
                   {t("contact.title")}
                 </h2>
                 <p className="text-gray-300 text-lg">

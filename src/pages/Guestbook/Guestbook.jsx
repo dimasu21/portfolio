@@ -253,7 +253,7 @@ const Guestbook = () => {
           transition={{ duration: 0.6 }}
           className="mb-8 pt-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-2">
             {t("guestbook.title")}
           </h2>
           <p className="text-gray-400">
