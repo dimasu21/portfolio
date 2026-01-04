@@ -84,68 +84,61 @@ export default function LikeButton({ postId }) {
   };
 
   return (
-    <div className="flex items-center gap-3">
-      <motion.button
-        onClick={handleLike}
-        disabled={isLoading}
-        className={`relative group flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
-          liked
-            ? "bg-red-500/10 border-red-500/50 text-red-500"
-            : "bg-gray-900 border-gray-700 text-gray-400 hover:border-red-500/50 hover:text-red-400"
-        }`}
-        whileTap={{ scale: 0.95 }}
+    <motion.button
+      onClick={handleLike}
+      disabled={isLoading}
+      className={`relative group flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
+        liked
+          ? "bg-red-500/10 border-red-500/50 text-red-500"
+          : "bg-gray-900 border-gray-700 text-gray-400 hover:border-red-500/50 hover:text-red-400"
+      }`}
+      whileTap={{ scale: 0.95 }}
+    >
+      {/* Heart Icon */}
+      <motion.div
+        animate={liked ? { scale: [1, 1.3, 1] } : {}}
+        transition={{ duration: 0.3 }}
       >
-        {/* Heart Icon */}
-        <motion.div
-          animate={liked ? { scale: [1, 1.3, 1] } : {}}
-          transition={{ duration: 0.3 }}
-        >
-          <Heart
-            size={20}
-            className={`transition-all duration-300 ${
-              liked ? "fill-red-500 text-red-500" : ""
-            }`}
-          />
-        </motion.div>
+        <Heart
+          size={20}
+          className={`transition-all duration-300 ${
+            liked ? "fill-red-500 text-red-500" : ""
+          }`}
+        />
+      </motion.div>
 
-        {/* Likes Count */}
-        <span className="font-medium text-sm">{likesCount}</span>
+      {/* Likes Count */}
+      <span className="font-medium text-sm">{likesCount}</span>
 
-        {/* Floating Hearts Animation */}
-        <AnimatePresence>
-          {showAnimation && (
-            <>
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{
-                    opacity: 1,
-                    scale: 0.5,
-                    x: 0,
-                    y: 0,
-                  }}
-                  animate={{
-                    opacity: 0,
-                    scale: 1,
-                    x: (Math.random() - 0.5) * 60,
-                    y: -40 - Math.random() * 30,
-                  }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute pointer-events-none"
-                >
-                  <Heart size={12} className="fill-red-500 text-red-500" />
-                </motion.div>
-              ))}
-            </>
-          )}
-        </AnimatePresence>
-      </motion.button>
-
-      {/* Like text */}
-      <span className="text-gray-500 text-sm">
-        {liked ? "You liked this" : "Like this post"}
-      </span>
-    </div>
+      {/* Floating Hearts Animation */}
+      <AnimatePresence>
+        {showAnimation && (
+          <>
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{
+                  opacity: 1,
+                  scale: 0.5,
+                  x: 0,
+                  y: 0,
+                }}
+                animate={{
+                  opacity: 0,
+                  scale: 1,
+                  x: (Math.random() - 0.5) * 60,
+                  y: -40 - Math.random() * 30,
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute pointer-events-none"
+              >
+                <Heart size={12} className="fill-red-500 text-red-500" />
+              </motion.div>
+            ))}
+          </>
+        )}
+      </AnimatePresence>
+    </motion.button>
   );
 }

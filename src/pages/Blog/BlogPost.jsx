@@ -179,7 +179,7 @@ export default function BlogPost() {
         </header>
 
         {/* Like Button */}
-        <div className="max-w-[65ch] mx-auto mb-8">
+        <div className="max-w-[65ch] mx-auto mb-8 flex justify-end">
           <LikeButton postId={post.id} />
         </div>
 
