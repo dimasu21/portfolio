@@ -237,7 +237,7 @@ const profile = {
             </div>
 
             {/* Right column - Code window (hidden on mobile) */}
-            <div className="hidden lg:block w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s">
+            {/* <div className="hidden lg:block w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s">
               <div className="hero-gradient-border">
                 <div className="code-window bg-[#091121]">
                   <div className="window-header">
@@ -254,7 +254,7 @@ const profile = {
                   </pre>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 
