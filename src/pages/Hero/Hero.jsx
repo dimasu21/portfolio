@@ -111,7 +111,8 @@ const profile = {
 
   return (
     <>
-      <main className="bg-[#020617] text-white min-h-screen">
+      <main className="bg-[#020617] text-white min-h-screen relative">
+        <GridBackground />
         <SEO 
           title="Home" 
           description="Dimas Tri Mulyo - AI Engineer & Full Stack Developer Portfolio"
@@ -124,7 +125,7 @@ const profile = {
           <div className="absolute inset-0"></div>
 
           {/* Choose one of these background options */}
-          <GridBackground />
+          {/* <GridBackground /> - Moved to main container */}
 
           {/* Or keep the original backgrounds if you prefer */}
           {/* <HexagonBackground /> */}

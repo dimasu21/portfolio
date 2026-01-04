@@ -1,20 +1,13 @@
 import HeroImg from "@/assets/images/hero.jpeg";
 import Terminal from "@/components/Terminal";
 import { useTranslation } from "react-i18next";
-import GridBackground from "@/components/GridBackground";
 
 export default function About() {
   const { t } = useTranslation();
   
   return (
     <>
-      <section id="about" className="py-16 md:py-32 text-white bg-[#04081A] relative overflow-hidden">
-        {/* Grid Background */}
-        <div className="absolute inset-0 z-0">
-          <GridBackground />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04081A] via-transparent to-[#04081A]" />
-        </div>
-        
+      <section id="about" className="py-16 md:py-32 text-white bg-transparent relative">
         <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 relative z-10">
           <h2 className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl text-white">
             {t("about.title")}
