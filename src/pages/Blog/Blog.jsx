@@ -67,7 +67,7 @@ export default function Blog() {
   };
 
   return (
-    <main className="bg-[#020617] text-white min-h-screen pt-32 md:pt-40 pb-16">
+    <main className="bg-[#020617] text-white min-h-screen pt-32 md:pt-40 pb-16 border-0">
       <SEO 
         title="Blog" 
         description="Thoughts, tutorials, and insights on AI Engineering and Web Development."

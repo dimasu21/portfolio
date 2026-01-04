@@ -51,7 +51,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#04081A] text-white py-12 md:py-16 relative z-20 overflow-hidden">
+    <footer 
+      className="bg-[#04081A] text-white py-12 md:py-16 relative z-20"
+      style={{ 
+        transform: 'translateZ(0)', 
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden'
+      }}
+    >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Gradient Divider - REMOVED */}
 

@@ -76,6 +76,11 @@
     font-family: "Space Grotesk", system-ui, sans-serif;
     letter-spacing: -0.02em;
   }
+  
+  /* Global reset to fix diagonal line artifacts on desktop */
+  *, *::before, *::after {
+    border-color: transparent;
+  }
 }
 
 /* 4. Sisa Keyframes & Custom CSS Anda */
