@@ -107,9 +107,3 @@ Required Supabase tables:
 
 This project is licensed under **CC BY-NC-SA 4.0**.
 You may share and adapt with attribution, non-commercially.
-
----
-
-<div align="center">
-  Made with by <a href="https://dimasu.site">Dimas Tri Mulyo</a>
-</div>
