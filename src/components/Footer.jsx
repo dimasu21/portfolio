@@ -53,8 +53,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#04081A] text-white py-12 md:py-16 relative z-20 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* Gradient Divider - At Top */}
-        <div className="h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent mb-8"></div>
+        {/* Gradient Divider - REMOVED */}
 
         {/* Social Icons - Circular Style with Glow Effect */}
         <div className="flex gap-4 mb-8">
