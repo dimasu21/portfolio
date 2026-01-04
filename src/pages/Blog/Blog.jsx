@@ -90,6 +90,17 @@ export default function Blog() {
           <p className="text-gray-400 mt-6 leading-relaxed max-w-2xl">
             {t("blog.description")}
           </p>
+          
+          {/* Saweria Support Button */}
+          <a
+            href="https://saweria.co/dimasu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-medium rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/25"
+          >
+            <span>☕</span>
+            <span>Support Me</span>
+          </a>
         </motion.div>
 
         {/* Year Background + Posts */}
