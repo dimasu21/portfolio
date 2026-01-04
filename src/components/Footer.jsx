@@ -26,12 +26,11 @@ const Footer = () => {
     },
     {
       name: "Facebook",
-      href: "https://facebook.com/YOUR_FACEBOOK", // Ganti dengan link Facebook kamu
-      icon: Facebook,
+      href: "https://www.facebook.com/share/1AYB9D9fPp/", 
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/YOUR_INSTAGRAM", // Ganti dengan link Instagram kamu
+      href: "https://www.instagram.com/dimasu_tm?igsh=MXF2dWNubTF4N205Mw==",
       icon: Instagram,
     },
     {
