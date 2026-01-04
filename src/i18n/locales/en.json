@@ -86,6 +86,10 @@
     "sourceCode": "Source Code",
     "liveDemo": "Live Demo",
     "items": {
+      "netra": {
+        "title": "Netra - Literature Review Assistant",
+        "description": "An AI-powered assistant for literature reviews. Upload documents and let our OCR & Rabin-Karp algorithms instantly find relevant sections for your research."
+      },
       "house": {
         "title": "High Accuracy House Prediction",
         "description": "An intelligent Machine Learning model designed to predict house prices with high accuracy by analyzing property features, location, and market trends."

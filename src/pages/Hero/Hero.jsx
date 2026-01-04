@@ -233,7 +233,7 @@ const profile = {
 
             {/* Right column - Code window (hidden on mobile) */}
             <div className="hidden lg:block w-full lg:w-1/2 animate__animated animate__fadeInDown animate__delay-0.1s">
-              <div className="gradient-border">
+              <div className="hero-gradient-border">
                 <div className="code-window bg-[#091121]">
                   <div className="window-header">
                     <div className="window-dot bg-red-500"></div>

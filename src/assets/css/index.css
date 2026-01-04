@@ -107,7 +107,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.gradient-border {
+.hero-gradient-border {
   position: relative;
   background: linear-gradient(45deg, #60a5fa, #34d399);
   padding: 2px;
@@ -223,7 +223,7 @@ pre[class*="language-"] {
   animation: shimmer 2s infinite;
 }
 
-.bg-grid-pattern {
+.skills-grid-pattern {
   background-image: linear-gradient(
       to right,
       rgba(100, 100, 255, 0.1) 1px,

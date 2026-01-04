@@ -11,9 +11,18 @@ import houseImg from "../../assets/images/pratinjau.png";
 import potholeImg from "../../assets/images/Demo.png";
 import dssImg from "../../assets/images/screenshot-main.png";
 import portfolioImg from "../../assets/images/portofolio.png";
+import netraImg from "../../assets/images/netra-preview.png";
 
 // --- PROJECT DATA ---
 const getProjects = (t) => [
+  {
+    title: t("projects.items.netra.title"),
+    description: t("projects.items.netra.description"),
+    src: netraImg,
+    color: "#3b82f6", // Blue
+    githubLink: "#",
+    liveLink: "https://netraku.my.id/",
+  },
   {
     title: t("projects.items.house.title"),
     description: t("projects.items.house.description"),

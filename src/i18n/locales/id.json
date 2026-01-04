@@ -86,6 +86,10 @@
     "sourceCode": "Kode Sumber",
     "liveDemo": "Demo Langsung",
     "items": {
+      "netra": {
+        "title": "Netra - Asisten Tinjauan Pustaka",
+        "description": "Asisten AI untuk Review Tinjauan Pustaka. Upload dokumen, biarkan OCR & algoritma Rabin-Karp menemukan bagian relevan secara instan."
+      },
       "house": {
         "title": "Prediksi Harga Rumah Akurat",
         "description": "Model Machine Learning cerdas yang dirancang untuk memprediksi harga rumah dengan akurasi tinggi dengan menganalisis fitur properti, lokasi, dan tren pasar."
