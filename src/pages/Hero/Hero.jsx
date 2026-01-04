@@ -184,6 +184,9 @@ const profile = {
               <div className="relative mb-8 sm:mb-12 max-w-xl">
                 <p className="text-base sm:text-xl text-gray-300/90 leading-relaxed">
                   {t("hero.description")}
+                  <span className="block mt-1 sm:mt-2">
+                    {t("hero.subDescription")}
+                  </span>
                 </p>
               </div>
 
