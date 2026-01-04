@@ -96,7 +96,7 @@ export default function Blog() {
             href="https://saweria.co/dimasu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center mt-6 px-4 py-2 bg-blue-900 text-white text-xs font-bold rounded border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150"
+            className="inline-flex items-center mt-6 px-4 py-2 bg-blue-900 text-white text-xs font-bold rounded border-2 border-white/50 shadow-[3px_3px_0px_0px_rgba(255,255,255,0.5)] hover:shadow-[1px_1px_0px_0px_rgba(255,255,255,0.5)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150"
           >
             Support Me
           </a>
