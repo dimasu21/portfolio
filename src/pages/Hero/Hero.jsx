@@ -131,8 +131,8 @@ const profile = {
           {/* <AnimatedGrid /> */}
           {/* <DotBackground /> */}
 
-          {/* Meteors Effect - Disabled to prevent diagonal lines */}
-          {/* <Meteors number={10} /> */}
+          {/* Meteors Effect */}
+          <Meteors number={15} />
 
           {/* Main content container */}
           <div
