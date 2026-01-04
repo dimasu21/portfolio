@@ -37,7 +37,7 @@ export default function App() {
     <AuthProvider>
       <ScrollToTop />
       <div 
-        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`min-h-screen bg-[#020617] transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       >
       {/* <CursorTrail /> */}
       <Header />
