@@ -105,20 +105,38 @@ const Footer = () => {
             </Link>
           </p>
           
-          {/* DMCA Protected Badge */}
-          <a 
-            href="https://www.dmca.com/Protection/Status.aspx?ID=f8498327-bc27-4b80-9f4b-0ec1a84c96aa" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-400 transition-colors"
-            title="DMCA.com Protection Status"
-          >
-            <img 
-              src="https://images.dmca.com/Badges/dmca-badge-w150-5x1-09.png?ID=f8498327-bc27-4b80-9f4b-0ec1a84c96aa" 
-              alt="DMCA.com Protection Status" 
-              className="h-5 opacity-70 hover:opacity-100 transition-opacity"
-            />
-          </a>
+          {/* Protection Badges */}
+          <div className="flex items-center gap-4">
+            {/* Creative Commons Badge */}
+            <a 
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-400 transition-colors"
+              title="Creative Commons BY-NC-SA 4.0"
+            >
+              <img 
+                src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" 
+                alt="Creative Commons License" 
+                className="h-5 opacity-70 hover:opacity-100 transition-opacity"
+              />
+            </a>
+            
+            {/* DMCA Protected Badge */}
+            <a 
+              href="https://www.dmca.com/Protection/Status.aspx?ID=f8498327-bc27-4b80-9f4b-0ec1a84c96aa" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-400 transition-colors"
+              title="DMCA.com Protection Status"
+            >
+              <img 
+                src="https://images.dmca.com/Badges/dmca-badge-w150-5x1-09.png?ID=f8498327-bc27-4b80-9f4b-0ec1a84c96aa" 
+                alt="DMCA.com Protection Status" 
+                className="h-5 opacity-70 hover:opacity-100 transition-opacity"
+              />
+            </a>
+          </div>
         </div>
       </div>
 
