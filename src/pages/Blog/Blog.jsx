@@ -138,7 +138,7 @@ export default function Blog() {
                         disabled={currentPage === 1}
                         className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                           currentPage === 1 
-                            ? "text-gray-600 cursor-not-allowed" 
+                            ? "invisible" 
                             : "text-gray-400 hover:text-white"
                         }`}
                       >
@@ -155,7 +155,7 @@ export default function Blog() {
                         disabled={currentPage === Math.ceil(posts.length / postsPerPage)}
                         className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                            currentPage === Math.ceil(posts.length / postsPerPage)
-                            ? "text-gray-600 cursor-not-allowed" 
+                            ? "invisible" 
                             : "text-gray-400 hover:text-white"
                         }`}
                       >
