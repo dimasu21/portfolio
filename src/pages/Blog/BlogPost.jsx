@@ -178,10 +178,10 @@ export default function BlogPost() {
           )}
         </header>
 
-        {/* Like Button - Disabled for debugging */}
-        {/* <div className="max-w-[65ch] mx-auto mb-8 flex justify-end">
+        {/* Like Button */}
+        <div className="max-w-[65ch] mx-auto mb-8 flex justify-end">
           <LikeButton postId={post.id} />
-        </div> */}
+        </div>
 
         {/* Content */}
         <motion.div
