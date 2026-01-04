@@ -275,7 +275,7 @@ const profile = {
           </div>
         </div>
         <PortfolioPage />
-        <GitHubStats username="dimasu21" />
+        {/* <GitHubStats username="dimasu21" /> */}
       </main>
     </>
   );
