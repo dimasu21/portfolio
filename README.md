@@ -1,188 +1,115 @@
-# Portfolio Website
+# 🚀 Dimas Tri Mulyo - Portfolio Website
 
 <div align="center">
-  <pre>
-    _____           _    __      _ _       
-   |  __ \         | |  / _|    | (_)      
-   | |__) |__  _ __| |_| |_ ___ | |_  ___  
-   |  ___/ _ \| '__| __|  _/ _ \| | |/ _ \ 
-   | |  | (_) | |  | |_| || (_) | | | (_) |
-   |_|   \___/|_|   \__|_| \___/|_|_|\___/ 
-  </pre>
+  <img src="src/assets/images/portofolio.png" alt="Portfolio Preview" width="800"/>
+  
+  [![Live Demo](https://img.shields.io/badge/Live-dimasu.site-00C7B7?style=for-the-badge&logo=vercel)](https://dimasu.site)
+  [![GitHub](https://img.shields.io/badge/GitHub-dimasu21-181717?style=for-the-badge&logo=github)](https://github.com/dimasu21)
 </div>
 
-Welcome to my **portfolio website**! This site showcases my skills, experience, Certificate, projects, and how to get in touch with me. It's built with **React** and **Vite** for a fast, modern web experience. You can explore my work, learn about my journey, and contact me directly.
+---
+
+## ✨ Features
+
+- 🌐 **Multi-language** (English & Indonesian with i18next)
+- 📝 **Blog System** with Supabase CMS, pagination, and likes
+- 💬 **Guestbook** with real-time comments (Google/GitHub auth)
+- 🎨 **Modern UI** with Framer Motion animations & Tailwind CSS
+- 🔍 **SEO Optimized** with JSON-LD, sitemap, and meta tags
+- 📱 **Fully Responsive** (Mobile, Tablet, Desktop)
+- 🌙 **Dark Theme** with premium glassmorphism effects
 
 ---
 
-## Demo
+## 🛠️ Tech Stack
 
-![Portfolio Demo](src/assets/images/portofolio.png)
+| Category       | Technologies                       |
+| -------------- | ---------------------------------- |
+| **Frontend**   | React 18, Vite 7                   |
+| **Styling**    | Tailwind CSS, Framer Motion        |
+| **Backend**    | Supabase (Auth, Database, Storage) |
+| **Deployment** | Cloudflare Pages                   |
+| **SEO**        | react-helmet-async, JSON-LD        |
 
 ---
 
-## Live Preview
+## 📂 Project Structure
 
-Check out the live preview of the portfolio website here:  
-[**Live Demo**](https://modern-portofolio.vercel.app/)
-
----
-
-### 🎯 Project Structure
-
-```bash
-portfolio/
-├── node_modules/
-├── public/
-├── src/
-│   ├── assets/
-│   │   ├── css/
-│   │   │   ├── index.css
-│   │   │   └── tomorrow.css
-│   │   └── images/
-│   ├── components/
-│   │   ├── ui/
-│   │   │   ├── Reusable Components/
-│   │   │   │   ├── badge.jsx
-│   │   │   │   ├── button.jsx
-│   │   │   │   ├── card.jsx
-│   │   │   │   ├── CertificateLoader.jsx
-│   │   │   │   ├── evervault-card.jsx
-│   │   │   │   ├── flip-words.jsx
-│   │   │   │   ├── icon-cloud.jsx
-│   │   │   │   ├── meteors.jsx
-│   │   │   │   ├── sparkles-text.jsx
-│   │   │   │   └── tooltip.jsx
-│   │   │   │
-│   │   │   ├── Main Components/
-│   │   │   │   ├── AnimatedGrid.jsx
-│   │   │   │   ├── Contact.jsx
-│   │   │   │   ├── Certificate.jsx
-│   │   │   │   ├── enhanced-portfolio-card.jsx
-│   │   │   │   ├── Experience.jsx
-│   │   │   │   ├── global.jsx
-│   │   │   │   ├── Header.jsx
-│   │   │   │   ├── Hero.jsx
-│   │   │   │   ├── Home.jsx
-│   │   │   │   ├── PortfolioPage.jsx
-│   │   │   │   ├── Projects.jsx
-│   │   │   │   └── Skills.jsx
-│   │   └── lib/
-│   │       └── utils.js
-│   ├── pages/
-│   │   ├── About/
-│   │   │   └── About.jsx
-│   │   ├── Contact/
-│   │   │   └── Contact.jsx
-│   │   ├── Experience/
-│   │   │   └── Experience.jsx
-│   │   ├── Header/
-│   │   │   └── Header.jsx
-│   │   ├── Hero/
-│   │   │   └── Hero.jsx
-│   │   ├── Projects/
-│   │   │   ├── Projects.jsx
-│   │   │   └── testProjects.jsx
-│   │   └── Skills/
-│   │       └── Skills.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── Configuration Files/
-│   ├── .eslintrc.js
-│   ├── .gitignore
-│   ├── components.json
-│   ├── index.html
-│   ├── jsconfig.json
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── README.md
-│   ├── tailwind.config.js
-│   ├── vercel.json
-│   └── vite.config.js
-
+```
+src/
+├── assets/          # Images, CSS, fonts
+├── components/      # Reusable UI components
+├── context/         # React Context (Auth)
+├── i18n/            # Translations (en.json, id.json)
+├── lib/             # Supabase client, utilities
+└── pages/           # Route pages
+    ├── About/
+    ├── Blog/        # Blog list & single post
+    ├── BlogAdmin/   # Admin CMS for blog
+    ├── Certificate/
+    ├── Contact/
+    ├── Experience/
+    ├── Guestbook/
+    ├── Hero/
+    ├── Legal/       # Privacy & Disclaimer
+    ├── Projects/
+    ├── Service/
+    └── Skills/
 ```
 
 ---
 
-## Sections of the Portfolio
+## 🚀 Getting Started
 
-The portfolio website consists of the following sections:
+### Prerequisites
 
-- **Home**: Introduction and a brief overview.
-- **Skills**: A detailed list of my technical skills.
-- **Experience**: My professional journey and work experience.
-- **Certificate**: Academic background and certifications.
-- **Projects**: A showcase of the projects I've worked on.
-- **Contact**: Information on how to reach out to me.
+- Node.js 18+
+- npm or yarn
 
----
-
-## 💻 Technologies Used
-
-- **Frontend:** React.js with Vite
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** React Icons
-- **Deployment:** netfly.app
-
----
-
-## Installation ⬇️
-
-You will need to download **Git** and **Node** to run this project.
-
-### Git
-
-- Download and install Git from the official website: [Git Downloads](https://git-scm.com/)
-- Verify the installation:
-  ```bash
-  git --version
-  ```
-
-### Node
-
-- Download and install Node.js from the official website: [Node.js Downloads](https://nodejs.org/)
-- Make sure you have the latest version of both Git and Node on your computer.
-- Verify the installation:
-  ```bash
-  node --version
-  ```
-
-# Getting Started 🎯
-
-Follow these steps to run the project locally on your machine.
-
-### 1. Clone the Repository
-
-Open your terminal and run the following command to clone the repo:
-
-git clone [https://github.com/DimasTriM/portfolio-main.git](https://github.com/DimasTriM/portfolio-main.git)
+### Installation
 
 ```bash
-cd portfolio-main
+# Clone the repository
+git clone https://github.com/DimasTriM/modern-portfolio.git
+cd modern-portfolio
 
-```
-
-Install Dependencies ⚙️
-From the root directory of your project, install the necessary packages:
-
-```bash
+# Install dependencies
 npm install
-```
 
-Run the Development Server 🚀
-Start the development server to see your project live:
-
-```bash
+# Start development server
 npm run dev
 ```
 
-View the Project 🌐
-Open your browser and visit http://localhost:5173/ to see the result! 🎉
+Open [http://localhost:5173](http://localhost:5173) to view it.
 
-## 📝 License
+### Build for Production
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+```bash
+npm run build
+```
 
 ---
+
+## 🔐 Environment Setup
+
+Create a Supabase project and configure the client in `src/lib/supabase.js`.
+
+Required Supabase tables:
+
+- `blog_posts` - Blog content
+- `blog_likes` - Post likes
+- `guestbook` - Guestbook messages
+- `admins` - Admin email whitelist
+
+---
+
+## 📄 License
+
+This project is licensed under **CC BY-NC-SA 4.0**.
+You may share and adapt with attribution, non-commercially.
+
+---
+
+<div align="center">
+  Made with ❤️ by <a href="https://dimasu.site">Dimas Tri Mulyo</a>
+</div>
