@@ -387,7 +387,14 @@ export default function BlogAdmin() {
   }
 
   return (
-    <main className="bg-[#020617] text-white min-h-screen pt-32 pb-16">
+    <main 
+      className="bg-[#020617] text-white min-h-screen pt-32 pb-16"
+      style={{ 
+        transform: 'translateZ(0)', 
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden'
+      }}
+    >
       <SEO title="Blog Dashboard" />
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
