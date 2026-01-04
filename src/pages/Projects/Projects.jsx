@@ -55,7 +55,7 @@ const getProjects = (t) => [
     src: portfolioImg,
     color: "#8b5cf6", // Purple
     githubLink: "https://github.com/DimasTriM/modern-portfolio.git",
-    liveLink: "https://modern-portofolio.vercel.app/projects/",
+    hideLiveDemo: true,
   },
 ];
 
