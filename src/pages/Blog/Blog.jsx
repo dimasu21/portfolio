@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { Link, useNavigate } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
 export default function Blog() {
@@ -10,6 +11,15 @@ export default function Blog() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 4;
+
+  // Pagination Logic
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 
 
@@ -100,24 +110,61 @@ export default function Blog() {
                 {t("blog.comingSoon")}
               </div>
             ) : (
-              posts.map((post, index) => (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="block group"
-                >
-                  <Link to={`/blog/${post.slug}`} className="block">
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-200 group-hover:text-white transition-colors mb-1">
-                      {post.title}
-                    </h2>
-                    <span className="text-gray-500 text-sm">
-                      {formatDate(post.created_at)}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))
+              <>
+                {currentPosts.map((post, index) => (
+                  <motion.div
+                    key={post.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    className="block group"
+                  >
+                    <Link to={`/blog/${post.slug}`} className="block">
+                      <h2 className="text-xl sm:text-2xl font-bold text-gray-200 group-hover:text-white transition-colors mb-1">
+                        {post.title}
+                      </h2>
+                      <span className="text-gray-500 text-sm">
+                        {formatDate(post.created_at)}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* Pagination Controls */}
+                {posts.length > postsPerPage && (
+                  <div className="flex items-center justify-between pt-12 border-t border-gray-800 mt-12">
+                     <button
+                        onClick={() => paginate(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+                          currentPage === 1 
+                            ? "text-gray-600 cursor-not-allowed" 
+                            : "text-gray-400 hover:text-white"
+                        }`}
+                      >
+                        <ChevronLeft size={16} />
+                        Previous
+                      </button>
+
+                      <span className="text-sm text-gray-500">
+                        Page {currentPage} of {Math.ceil(posts.length / postsPerPage)}
+                      </span>
+
+                      <button
+                        onClick={() => paginate(currentPage + 1)}
+                        disabled={currentPage === Math.ceil(posts.length / postsPerPage)}
+                        className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+                           currentPage === Math.ceil(posts.length / postsPerPage)
+                            ? "text-gray-600 cursor-not-allowed" 
+                            : "text-gray-400 hover:text-white"
+                        }`}
+                      >
+                        Next
+                        <ChevronRight size={16} />
+                      </button>
+                  </div>
+                )}
+              </>
             )}
           </motion.div>
         </div>
