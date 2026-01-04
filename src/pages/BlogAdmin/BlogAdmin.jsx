@@ -199,6 +199,7 @@ export default function BlogAdmin() {
           [{ header: [1, 2, 3, false] }],
           [{ size: ["small", false, "large", "huge"] }],
           ["bold", "italic", "underline", "strike", "blockquote"],
+          [{ color: [] }, { background: [] }],
           [{ list: "ordered" }, { list: "bullet" }],
           [{ align: [] }],
           ["link", "image"],
