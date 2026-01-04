@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Send, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -113,6 +114,10 @@ export default function Contact() {
 
   return (
     <main className="pt-20 lg:pt-0 bg-[#04081A] text-white min-h-screen relative overflow-hidden">
+      <SEO 
+        title="Contact" 
+        description="Get in touch with Dimas Tri Mulyo for collaboration or inquiries."
+      />
       <GridBackground />
       <section className="hero min-h-screen flex items-center relative px-4 sm:px-6 lg:px-8 z-10">
         <div className="container mx-auto max-w-6xl">

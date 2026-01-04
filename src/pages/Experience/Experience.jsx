@@ -1,6 +1,7 @@
 import React from "react";
 import { Code2, Activity, Cpu, Layers, Network, Binary, Share2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 
 const ExperienceCard = ({
   title,
@@ -93,6 +94,10 @@ const ExperienceSection = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b overflow-hidden pt-32 pb-20">
+      <SEO 
+        title="Experience" 
+        description="Professional journey and work experience of Dimas Tri Mulyo."
+      />
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-[#04081A]" />
       {/* Grid background */}

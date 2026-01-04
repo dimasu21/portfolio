@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import SEO from "@/components/SEO";
 import IconCloudDemo from "@/components/globe";
 import { Code2, Paintbrush, Database, Layout, Cpu, Cloud } from "lucide-react";
 import {
@@ -164,6 +165,10 @@ const SkillsSection = () => {
 
   return (
     <main className="pt-15 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
+      <SEO 
+        title="Skills" 
+        description="Technical skills and technology stack of Dimas Tri Mulyo - Frontend, Backend, AI, & DevOps."
+      />
       {/* Grid Background */}
       <div className="absolute inset-0 skills-grid-pattern opacity-20 pointer-events-none"></div>
 

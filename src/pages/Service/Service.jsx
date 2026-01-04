@@ -3,6 +3,7 @@ import { Monitor, Smartphone, Brain, Palette } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 
 // Service keywords that cycle through
 const serviceKeywords = ["Web", "AI", "UI/UX"];
@@ -21,6 +22,10 @@ export default function Service() {
 
   return (
     <section className="min-h-screen bg-[#04081A] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <SEO 
+        title="Services" 
+        description="Services offered: Web Development, AI Solutions, and UI/UX Design."
+      />
       {/* Background */}
       <GridBackground />
 

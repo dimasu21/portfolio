@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { Link, useNavigate } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 export default function Blog() {
   const { t } = useTranslation();
@@ -57,6 +58,10 @@ export default function Blog() {
 
   return (
     <main className="bg-[#020617] text-white min-h-screen pt-32 md:pt-40 pb-16">
+      <SEO 
+        title="Blog" 
+        description="Thoughts, tutorials, and insights on AI Engineering and Web Development."
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Header */}
         <motion.div

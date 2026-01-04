@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/context/AuthContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import GridBackground from "@/components/GridBackground";
+import SEO from "@/components/SEO";
 
 // Secret admin key
 const ADMIN_SECRET = "dimasu";
@@ -197,6 +198,10 @@ const Guestbook = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden py-20 bg-[#04081A]">
+      <SEO 
+        title="Guestbook" 
+        description="Sign the guestbook and leave a message!"
+      />
       {/* Grid Background */}
       <div className="absolute inset-0 z-0">
         <GridBackground />

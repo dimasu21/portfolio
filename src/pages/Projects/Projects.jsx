@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { Github, Globe } from "lucide-react";
 import GridBackground from "@/components/GridBackground";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 
 // --- ASSETS IMPORT ---
 import houseImg from "../../assets/images/pratinjau.png";
@@ -116,6 +117,10 @@ export default function Projects() {
   return (
     <ReactLenis root>
       <main className="bg-[#04081A] relative" ref={container}>
+        <SEO
+          title="Projects"
+          description="Explore my portfolio of AI engineering and web development projects."
+        />
         <GridBackground />
         <section className="text-white w-full relative z-10">
           {/* Header Section */}

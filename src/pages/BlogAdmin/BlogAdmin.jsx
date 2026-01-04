@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Loader2, LogOut, Image as ImageIcon, SplitSquareHorizontal, Minus } from "lucide-react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import SEO from "@/components/SEO";
 
 // CSS for Quill Dark Mode
 import "@/assets/css/quill-dark.css"; 
@@ -308,6 +309,7 @@ export default function BlogAdmin() {
   if (!user) {
     return (
       <main className="bg-[#020617] text-white min-h-screen pt-32 pb-16">
+        <SEO title="Admin Login" />
         <div className="container mx-auto px-4 max-w-md">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -385,6 +387,7 @@ export default function BlogAdmin() {
 
   return (
     <main className="bg-[#020617] text-white min-h-screen pt-32 pb-16">
+      <SEO title="Blog Dashboard" />
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

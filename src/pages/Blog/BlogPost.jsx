@@ -6,6 +6,7 @@ import { FaArrowLeft, FaArrowRight, FaTag } from "react-icons/fa";
 import parse from "html-react-parser";
 import BlogComments from "./BlogComments"; // Import comments
 import LikeButton from "@/components/LikeButton"; // Import like button
+import SEO from "@/components/SEO";
 import "@/assets/css/blog-content.css";
 
 export default function BlogPost() {
@@ -132,6 +133,11 @@ export default function BlogPost() {
 
   return (
     <main className="bg-[#020617] text-white min-h-screen pt-32 pb-24 relative overflow-hidden isolate">
+      <SEO 
+        title={post.title} 
+        description={post.excerpt || `Read ${post.title} on Dimas Tri Mulyo's Blog`}
+        type="article"
+      />
       <article className="container mx-auto px-4 max-w-3xl relative z-10">
         
         {/* Top Back Link */}

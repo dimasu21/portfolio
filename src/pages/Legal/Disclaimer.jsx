@@ -1,12 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 export default function Disclaimer() {
   const { t } = useTranslation();
 
   return (
     <main className="min-h-screen bg-[#020617] text-gray-300 pt-32 pb-16 px-4">
+      <SEO title="Disclaimer" description="Disclaimer for Dimas Tri Mulyo's Portfolio" />
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

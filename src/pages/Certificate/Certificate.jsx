@@ -13,6 +13,7 @@ import {
 import { motion } from "framer-motion";
 import GridBackground from "@/components/GridBackground";
 import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
 
 const CertificateSection = () => {
   const { t } = useTranslation();
@@ -105,6 +106,10 @@ const CertificateSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden py-20 bg-[#04081A]">
+      <SEO 
+        title="Certificates" 
+        description="Certifications and achievements in Web Development and AI."
+      />
       {/* Grid Background */}
       <div className="absolute inset-0 z-0">
         <GridBackground />
