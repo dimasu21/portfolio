@@ -91,23 +91,12 @@ span.ql-size-large, span.ql-size-huge {
 .blog-content .ql-align-justify { 
   text-align: justify;
   text-justify: inter-word;
-  word-break: break-word;
-}
-
-/* Desktop: Disable hyphenation since wider text doesn't need it */
-@media (min-width: 768px) {
-  .blog-content .ql-align-justify {
-    hyphens: none;
-    -webkit-hyphens: none;
-  }
-}
-
-/* Mobile: Allow hyphenation for narrow screens */
-@media (max-width: 767px) {
-  .blog-content .ql-align-justify {
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
 }
 
 /* Horizontal Rule (Divider) */
