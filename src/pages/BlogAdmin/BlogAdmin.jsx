@@ -448,15 +448,16 @@ export default function BlogAdmin() {
               </div>
 
               <div>
-                <label className="block text-sm text-gray-400 mb-2">Slug</label>
+                <label className="block text-sm text-gray-400 mb-2">Slug (URL)</label>
                 <input
                   type="text"
                   value={formData.slug}
                   onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                  placeholder="post-url-slug"
+                  placeholder="custom-short-url"
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
                   required
                 />
+                <p className="text-xs text-gray-500 mt-1">💡 Tip: Edit this for a shorter URL (e.g. "anime-klise" instead of full title)</p>
               </div>
 
               <div>
