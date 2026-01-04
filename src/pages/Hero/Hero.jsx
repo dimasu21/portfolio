@@ -115,6 +115,7 @@ const profile = {
         <SEO 
           title="Home" 
           description="Dimas Tri Mulyo - AI Engineer & Full Stack Developer Portfolio"
+          keywords="dimasu, Dimas Tri M, Dimas Tri Mulyo, AI Engineer, Full Stack Developer, Portfolio"
         />
         <section
           className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 pt-24 md:pt-32 hero-section-padding"
