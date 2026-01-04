@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import { FaArrowLeft, FaArrowRight, FaTag } from "react-icons/fa";
 import parse from "html-react-parser";
 import BlogComments from "./BlogComments"; // Import comments
+import LikeButton from "@/components/LikeButton"; // Import like button
 import "@/assets/css/blog-content.css";
 
 export default function BlogPost() {
@@ -176,6 +177,11 @@ export default function BlogPost() {
             </motion.p>
           )}
         </header>
+
+        {/* Like Button */}
+        <div className="max-w-[65ch] mx-auto mb-8">
+          <LikeButton postId={post.id} />
+        </div>
 
         {/* Content */}
         <motion.div
