@@ -61,7 +61,7 @@ const Guestbook = () => {
         },
         (payload) => {
           if (payload.eventType === "INSERT") {
-            setMessages((prev) => [payload.new, ...prev]);
+            setMessages((prev) => [...prev, payload.new]);
           } else if (payload.eventType === "DELETE") {
             setMessages((prev) => prev.filter((msg) => msg.id !== payload.old.id));
           }
@@ -83,7 +83,7 @@ const Guestbook = () => {
         supabase
           .from("guestbook")
           .select("*")
-          .order("created_at", { ascending: false }),
+          .order("created_at", { ascending: true }),
         new Promise(resolve => setTimeout(resolve, 2000)) // 2 second minimum
       ]);
 
@@ -301,8 +301,14 @@ const Guestbook = () => {
 
                 {/* Message Content */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-2 flex-wrap">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-medium text-white">{msg.name}</span>
+                    {/* Creator badge for admin */}
+                    {msg.name === "Dimas Tri Mulyo" && (
+                      <span className="px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-gradient-to-r from-teal-500 to-blue-500 text-white rounded">
+                        Creator
+                      </span>
+                    )}
                     <span className="text-xs text-gray-500">{formatDate(msg.created_at)}</span>
                     
                     {/* Delete button - only visible for admin */}
