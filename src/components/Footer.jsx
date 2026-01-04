@@ -26,7 +26,8 @@ const Footer = () => {
     },
     {
       name: "Facebook",
-      href: "https://www.facebook.com/share/1AYB9D9fPp/", 
+      href: "https://www.facebook.com/share/1AYB9D9fPp/",
+      icon: Facebook,
     },
     {
       name: "Instagram",
@@ -35,7 +36,7 @@ const Footer = () => {
     },
     {
       name: "Email",
-      href: "mailto:dimastry21@gmail.com",
+      href: "mailto:dimsartz021@gmail.com",
       icon: Mail,
     },
   ];
