@@ -93,16 +93,33 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <p className="text-xs text-gray-500">
-          © 2021 - Present Dimas Tri M. {t("footer.rights")}
-          <span className="mx-2">|</span>
-          <Link to="/privacy" className="hover:text-teal-400 transition-colors">{t("footer.privacy")}</Link>
-          <span className="mx-2">•</span>
-          <Link to="/disclaimer" className="hover:text-teal-400 transition-colors">{t("footer.disclaimer")}</Link>
-          <Link to="/admin/blog" className="ml-3 inline-flex items-center text-gray-600 hover:text-teal-400 transition-colors" aria-label="Admin Access">
-            <FaKey size={12} />
-          </Link>
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-xs text-gray-500">
+            © 2021 - Present Dimas Tri M. {t("footer.rights")}
+            <span className="mx-2">|</span>
+            <Link to="/privacy" className="hover:text-teal-400 transition-colors">{t("footer.privacy")}</Link>
+            <span className="mx-2">•</span>
+            <Link to="/disclaimer" className="hover:text-teal-400 transition-colors">{t("footer.disclaimer")}</Link>
+            <Link to="/admin/blog" className="ml-3 inline-flex items-center text-gray-600 hover:text-teal-400 transition-colors" aria-label="Admin Access">
+              <FaKey size={12} />
+            </Link>
+          </p>
+          
+          {/* DMCA Protected Badge */}
+          <a 
+            href="https://www.dmca.com/Protection/Status.aspx?ID=8fc36c51-29a7-4b95-9044-fe16d96ef1cc&refurl=https://dimasu.site" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-400 transition-colors"
+            title="DMCA.com Protection Status"
+          >
+            <img 
+              src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-09.png?ID=8fc36c51-29a7-4b95-9044-fe16d96ef1cc" 
+              alt="DMCA.com Protection Status" 
+              className="h-5 opacity-70 hover:opacity-100 transition-opacity"
+            />
+          </a>
+        </div>
       </div>
 
       {/* Back to Top Button */}
