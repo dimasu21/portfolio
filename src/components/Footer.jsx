@@ -107,14 +107,14 @@ const Footer = () => {
           
           {/* DMCA Protected Badge */}
           <a 
-            href="https://www.dmca.com/Protection/Status.aspx?ID=8fc36c51-29a7-4b95-9044-fe16d96ef1cc&refurl=https://dimasu.site" 
+            href="https://www.dmca.com/Protection/Status.aspx?ID=RXJyR1hsdmlrMVcveThiak93Vm5zUT090&refurl=https://dimasu.site" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-400 transition-colors"
             title="DMCA.com Protection Status"
           >
             <img 
-              src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-09.png?ID=8fc36c51-29a7-4b95-9044-fe16d96ef1cc" 
+              src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-09.png?ID=RXJyR1hsdmlrMVcveThiak93Vm5zUT090" 
               alt="DMCA.com Protection Status" 
               className="h-5 opacity-70 hover:opacity-100 transition-opacity"
             />
