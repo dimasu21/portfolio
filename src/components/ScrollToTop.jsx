@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /**
@@ -8,15 +8,23 @@ import { useLocation } from "react-router-dom";
 export default function ScrollToTop() {
   const { pathname, search } = useLocation();
 
-  useEffect(() => {
-    // Small delay to ensure content has rendered before scrolling
-    const timeoutId = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
+  // Use useLayoutEffect to prevent scroll flash
+  useLayoutEffect(() => {
+    // Disable browser's default scroll restoration
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
     
-    return () => clearTimeout(timeoutId);
+    // Scroll to top immediately
+    window.scrollTo(0, 0);
+
+    // Some browsers/mobile need a small delay override
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+
+    return () => clearTimeout(timer);
   }, [pathname, search]);
 
   return null;
 }
-
