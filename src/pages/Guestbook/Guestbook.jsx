@@ -17,6 +17,10 @@ const Guestbook = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [deletingId, setDeletingId] = useState(null);
+  
+  // Rate limiting state
+  const [cooldownSeconds, setCooldownSeconds] = useState(0);
+  const COOLDOWN_DURATION = 30; // 30 seconds cooldown between messages
 
   // Check if user is admin (database-based, secure)
   useEffect(() => {
@@ -73,6 +77,16 @@ const Guestbook = () => {
       supabase.removeChannel(channel);
     };
   }, []);
+
+  // Cooldown timer effect
+  useEffect(() => {
+    if (cooldownSeconds > 0) {
+      const timer = setTimeout(() => {
+        setCooldownSeconds(cooldownSeconds - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [cooldownSeconds]);
 
   // Fetch all messages from Supabase
   const fetchMessages = async () => {
@@ -142,6 +156,9 @@ const Guestbook = () => {
 
       if (error) throw error;
       setNewMessage("");
+      
+      // Start cooldown (rate limiting)
+      setCooldownSeconds(COOLDOWN_DURATION);
     } catch (error) {
       console.error("Error sending message:", error);
       alert("Failed to send message. Please try again.");
@@ -377,8 +394,9 @@ const Guestbook = () => {
                 />
                 <button
                   type="submit"
-                  disabled={isSubmitting || !newMessage.trim()}
+                  disabled={isSubmitting || !newMessage.trim() || cooldownSeconds > 0}
                   className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  title={cooldownSeconds > 0 ? `Wait ${cooldownSeconds}s` : "Send message"}
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-5 h-5 animate-spin" />
