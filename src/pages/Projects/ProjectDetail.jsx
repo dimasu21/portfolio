@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Github, Globe, CheckCircle2, AlertTriangle, Lightbulb, ScanText, FileText, Database, Code2, Layers, Cpu } from "lucide-react";
@@ -24,10 +24,19 @@ const ProjectDetail = () => {
 
   const project = projectDetails.find((p) => p.id === slug);
 
-  useEffect(() => {
-    // Scroll restoration is mostly handled by index.html script now,
-    // but this is a double safety measure for client-side navigation
+  // Aggressive Scroll to Top on Mount
+  useLayoutEffect(() => {
+    // Force scroll to top immediately before paint
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    
+    // Safety check needed for some browsers
+    const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 50);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   if (!project) {
@@ -56,59 +65,55 @@ const ProjectDetail = () => {
         description={content.subtitle}
       />
       
-      {/* Background & decorative elements */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+      {/* Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <GridBackground />
       </div>
       
-      {/* Ambient Glow - More Vibrant */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="relative z-10 pt-24 pb-20 px-4 md:px-8 max-w-6xl mx-auto">
         {/* Back Button */}
         <button
           onClick={() => navigate("/projects")}
-          className="group flex items-center gap-2 text-gray-400 hover:text-white mb-10 transition-colors"
+          className="group flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           <span>Back to Projects</span>
         </button>
 
-        {/* Hero Header Section - REDESIGNED */}
+        {/* Clean Minimalist Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-12"
         >
-          {/* Project Category Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-teal-300 bg-teal-900/30 border border-teal-500/30 rounded-full backdrop-blur-sm">
-            <Layers className="w-4 h-4" />
-            {project.category}
+          {/* Category */}
+          <div className="flex items-center gap-3 mb-4 text-teal-400">
+             <Layers className="w-5 h-5" />
+             <span className="font-medium tracking-wide text-sm uppercase">{project.category}</span>
           </div>
 
-          {/* Title with Gradient */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent leading-tight drop-shadow-sm max-w-5xl mx-auto">
+          {/* Title - Clean White */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight">
             {content.title}
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          {/* Subtitle - Gray */}
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed mb-8">
             {content.subtitle}
           </p>
           
-          {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
+          {/* Action Buttons - Standard Style */}
+          <div className="flex flex-wrap gap-4">
             {project.links.demo && (
               <a
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-500 rounded-full font-bold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-500 transition-colors shadow-lg shadow-teal-900/20"
               >
                 <Globe className="w-5 h-5" />
                 Visit Live Site
-                <div className="absolute inset-0 rounded-full bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             )}
             {project.links.github && (
@@ -116,7 +121,7 @@ const ProjectDetail = () => {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-8 py-4 bg-[#1e293b]/80 border border-gray-700 rounded-full font-bold text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 bg-[#1e293b] border border-gray-700 rounded-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
               >
                 <Github className="w-5 h-5" />
                 Source Code
@@ -125,136 +130,120 @@ const ProjectDetail = () => {
           </div>
         </motion.div>
 
-        {/* Hero Image with Glow */}
+        {/* Hero Image - Clean */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-20 rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl relative group max-w-5xl mx-auto"
+          className="mb-16 rounded-xl overflow-hidden border border-gray-800 shadow-2xl bg-[#0f172a]"
         >
-          {/* Image Glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-teal-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-          
-          <div className="relative rounded-2xl overflow-hidden bg-[#020617]">
-             <img
-              src={getImage(project.images.hero)}
-              alt={content.title}
-              className="w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-            />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#04081A] via-transparent to-transparent opacity-30" />
-          </div>
+          <img
+            src={getImage(project.images.hero)}
+            alt={content.title}
+            className="w-full object-cover"
+          />
         </motion.div>
 
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
+        {/* Content Section - Same as before but consistent style */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* Main Content (Left) */}
-          <div className="lg:col-span-8 space-y-16">
-            
+          {/* Left Column */}
+          <div className="lg:col-span-8 space-y-12">
             {/* Overview */}
-            <section className="relative">
-              <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-teal-500/50 to-transparent hidden lg:block" />
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="p-2 bg-teal-500/10 rounded-lg text-teal-400">
-                  <FileText className="w-6 h-6" />
-                </span>
+            <section>
+              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <FileText className="w-6 h-6 text-teal-500" />
                 Overview
               </h3>
-              <p className="text-gray-300 leading-relaxed text-lg text-justify">
+              <p className="text-gray-300 leading-relaxed text-lg">
                 {content.overview}
               </p>
             </section>
 
             {/* Engineering Process */}
             <section>
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                 <span className="p-2 bg-amber-500/10 rounded-lg text-amber-400">
-                  <Cpu className="w-6 h-6" />
-                </span>
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <Cpu className="w-6 h-6 text-amber-500" />
                 Engineering Process
               </h3>
               
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {content.challenges.map((challenge, idx) => (
-                  <div key={idx} className="bg-[#0f172a]/40 rounded-2xl p-6 border border-gray-800/50 hover:border-gray-700 transition-colors">
+                  <div key={idx} className="bg-[#0f172a] rounded-xl p-6 border border-gray-800">
                     <div className="mb-4">
                       <h4 className="flex items-center gap-2 text-lg font-bold text-white mb-2">
                         <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        Challenge: {challenge.title}
+                        {challenge.title}
                       </h4>
-                      <p className="text-gray-400 pl-7">{challenge.description}</p>
+                      <p className="text-gray-400 text-sm leading-relaxed">{challenge.description}</p>
                     </div>
 
-                    <div className="pl-7 relative">
-                       <div className="absolute left-[13px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-teal-500/30 to-transparent" />
-                       <div className="bg-[#1e293b]/50 rounded-xl p-4 border border-teal-500/10">
-                        <h4 className="flex items-center gap-2 text-lg font-semibold text-teal-300 mb-1">
-                          <CheckCircle2 className="w-4 h-4" />
-                          Solution: {content.solutions[idx].title}
-                        </h4>
-                        <p className="text-gray-400 text-sm">{content.solutions[idx].description}</p>
-                      </div>
+                    <div className="relative pl-6 border-l-2 border-teal-500/20">
+                      <h4 className="flex items-center gap-2 text-lg font-semibold text-teal-400 mb-1">
+                        <CheckCircle2 className="w-4 h-4" />
+                        Solution
+                      </h4>
+                      <p className="text-gray-300 text-sm leading-relaxed">{content.solutions[idx].description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </section>
-
           </div>
 
-          {/* Sidebar (Right) */}
+          {/* Right Column (Sidebar) */}
           <div className="lg:col-span-4 space-y-8">
             
             {/* Tech Stack */}
-            <div className="bg-[#0f172a]/50 p-6 rounded-3xl border border-gray-700/50 shadow-xl backdrop-blur-sm">
-              <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <div className="bg-[#0f172a] p-6 rounded-xl border border-gray-800">
+              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-blue-400" />
                 Tech Stack
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech) => (
-                  <div
+                  <span
                     key={tech}
-                    className="px-3 py-1.5 bg-blue-500/10 text-blue-200 text-sm font-medium rounded-lg border border-blue-500/20"
+                    className="px-3 py-1 bg-blue-500/10 text-blue-300 text-sm font-medium rounded-md border border-blue-500/20"
                   >
                     {tech}
-                  </div>
+                  </span>
                 ))}
               </div>
             </div>
 
             {/* Key Features */}
-            <div className="bg-[#0f172a]/50 p-6 rounded-3xl border border-gray-700/50 shadow-xl backdrop-blur-sm">
-              <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <div className="bg-[#0f172a] p-6 rounded-xl border border-gray-800">
+              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                 <ScanText className="w-5 h-5 text-purple-400" />
                 Key Features
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {content.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-300 text-sm">
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            {/* Project Meta */}
-            <div className="bg-[#0f172a]/50 p-6 rounded-3xl border border-gray-800/50 backdrop-blur-sm">
-              <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                <Database className="w-5 h-5 text-teal-400" />
-                Metadata
+            
+             {/* Metadata */}
+            <div className="bg-[#0f172a] p-6 rounded-xl border border-gray-800">
+               <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <Database className="w-5 h-5 text-gray-400" />
+                Project Info
               </h3>
-              <div className="space-y-4 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-gray-800/50 last:border-0">
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between py-2 border-b border-gray-700/50">
                   <span className="text-gray-500">Year</span>
-                  <span className="text-white font-medium">{project.date}</span>
+                  <span className="text-white">2024</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-800/50 last:border-0">
+                 <div className="flex justify-between py-2 border-b border-gray-700/50 last:border-0">
                   <span className="text-gray-500">Category</span>
-                  <span className="text-white font-medium">Web Application</span>
+                  <span className="text-white">Web Application</span>
                 </div>
               </div>
             </div>
