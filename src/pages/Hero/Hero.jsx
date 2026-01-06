@@ -119,7 +119,7 @@ const profile = {
           keywords="dimasu, Dimas Tri M, Dimas Tri Mulyo, AI Engineer, Full Stack Developer, Portfolio"
         />
         <section
-          className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 pt-24 md:pt-32 hero-section-padding"
+          className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 pt-24 md:pt-32 hero-section-padding overflow-hidden"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}
         >
           <div className="absolute inset-0"></div>
@@ -150,9 +150,9 @@ const profile = {
           >
             {/* Left column - Text content */}
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0 animate__animated animate__fadeInLeft relative">
-              {/* Decorative blurs */}
-              <div className="absolute hidden lg:-top-20 lg:-left-20 lg:block w-48 h-48 lg:w-64 lg:h-64 bg-white/5 rounded-full blur-3xl dark-only"></div>
-              <div className="absolute hidden lg:block lg:top-40 lg:-right-20 w-48 h-48 lg:w-64 lg:h-64 bg-white/5 rounded-full blur-3xl dark-only"></div>
+              {/* Decorative blurs - STRICTLY HIDDEN ON MOBILE */}
+              <div className="absolute hidden lg:block -top-20 -left-20 w-48 h-48 lg:w-64 lg:h-64 bg-white/5 rounded-full blur-3xl dark-only pointer-events-none"></div>
+              <div className="absolute hidden lg:block top-40 -right-20 w-48 h-48 lg:w-64 lg:h-64 bg-white/5 rounded-full blur-3xl dark-only pointer-events-none"></div>
 
 
 
