@@ -22,7 +22,7 @@ export default function About() {
                   width={1207}
                   height={929}
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                   style={{ animationDelay: '0.1s' }}
                 />
               </div>

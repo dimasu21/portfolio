@@ -11,6 +11,7 @@ import ThemeTransition from "./components/ThemeTransition";
 // Global space theme
 import StarsBackground from "./components/StarsBackground";
 import CursorTrail from "./components/CursorTrail";
+import { useMediaQuery } from "./hooks/useMediaQuery";
 
 import Hero from "./pages/Hero/Hero";
 // Lazy load pages for code splitting (reduces initial bundle size)
@@ -38,9 +39,12 @@ const PageLoader = () => (
   </div>
 );
 
+
+
 export default function App() {
   const [isOnePage, setIsOnePage] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   // Prevent flickering by waiting for initial render to complete
   useEffect(() => {
@@ -62,7 +66,7 @@ export default function App() {
           >
           {/* Global Space Theme Background */}
           <StarsBackground />
-          <CursorTrail />
+          {!isMobile && <CursorTrail />}
           
           <Header />
         <Suspense fallback={<PageLoader />}>

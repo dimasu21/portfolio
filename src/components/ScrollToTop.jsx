@@ -21,7 +21,7 @@ export default function ScrollToTop() {
     // Some browsers/mobile need a small delay override
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 10);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [pathname, search]);

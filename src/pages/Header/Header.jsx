@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
-  FaHome,
+  FaCoffee,
   FaLaptopCode,
   FaBriefcase,
   FaGraduationCap,
@@ -42,7 +42,7 @@ export default function Header() {
 
   // Main nav links (shown directly in navbar)
   const mainNavLinks = [
-    { id: "home", icon: FaHome, textKey: "nav.home", path: "/" },
+    { id: "home", icon: FaCoffee, textKey: "nav.home", path: "/" },
     { id: "blog", icon: FaPen, textKey: "nav.blog", path: "/blog" },
     { id: "projects", icon: FaLaptopCode, textKey: "nav.projects", path: "/projects" },
   ];
@@ -59,7 +59,7 @@ export default function Header() {
 
   // All links for mobile menu
   const allNavLinks = [
-    { id: "home", icon: FaHome, textKey: "nav.home", path: "/" },
+    { id: "home", icon: FaCoffee, textKey: "nav.home", path: "/" },
     { id: "blog", icon: FaPen, textKey: "nav.blog", path: "/blog" },
     { id: "skills", icon: FaCode, textKey: "nav.skills", path: "/skills" },
     { id: "experience", icon: FaBriefcase, textKey: "nav.experience", path: "/experience" },
@@ -74,164 +74,150 @@ export default function Header() {
   const isDropdownActive = dropdownLinks.some(link => link.id === activeLink);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
-      <div className="md:fixed md:top-4 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto">
-        <div className="p-[1px] md:rounded-none bg-[#eff1f5]">
-          <nav className="bg-theme-bg backdrop-blur-md md:rounded-none px-4 md:px-6 py-2.5">
-            {/* Mobile Menu Button */}
-            <div className="flex justify-between items-center md:hidden px-2">
-              <Link to="/" className="flex items-center gap-2">
-                <span className="text-white font-bold text-lg">Dimas Tri M</span>
-              </Link>
-              <div className="flex items-center gap-2">
-                <ThemeToggle />
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-white p-2"
-                >
-                  <FaBars />
-                </button>
-              </div>
-            </div>
+    <header className="fixed top-0 left-0 w-full z-50">
+      {/* Full-width navbar container - Solid on mobile, blur on desktop */}
+      <nav className="w-full bg-theme-bg border-b border-gray-700 md:border-none md:bg-theme-secondary/90 md:backdrop-blur-md px-4 md:px-8 py-2.5">
+        <div className="w-full flex items-center justify-between">
+          {/* Left Side: Home/Logo */}
+          <Link
+            to="/"
+            onClick={() => setActiveLink("home")}
+            className={`flex items-center gap-2 text-sm font-medium
+              transition-all duration-300
+              ${activeLink === "home"
+                ? "text-white"
+                : "text-gray-300 hover:text-white"
+              }
+            `}
+          >
+            <FaCoffee className={`text-base ${activeLink === "home" ? "scale-110" : ""}`} />
+            <span className="hidden sm:inline">{t("nav.home")}</span>
+          </Link>
 
-            {/* Mobile Navigation Links */}
-            <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden`}>
-              <div className="flex flex-col gap-2 py-4">
-                {allNavLinks.map(({ id, icon: Icon, textKey, path }) => (
-                  <Link
-                    key={id}
-                    to={path}
-                    onClick={() => {
-                      setActiveLink(id);
-                      setIsMenuOpen(false);
-                    }}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium
-                      transition-all duration-300 flex items-center gap-2
-                      hover:bg-[#eff1f5]/10 
-                      ${activeLink === id
-                        ? "bg-[#eff1f5]/15 text-white"
-                        : "text-gray-300 hover:text-white"
-                      }
-                    `}
-                  >
-                    <Icon className={`text-base ${activeLink === id ? "scale-110" : ""}`} />
-                    <span className="inline">{t(textKey)}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white p-2"
+            >
+              <FaBars />
+            </button>
+          </div>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:block">
-              <div className="flex flex-row items-center gap-1 lg:gap-2">
-                {/* Home Link */}
-                <Link
-                  to="/"
-                  onClick={() => setActiveLink("home")}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium
-                    transition-all duration-300 flex items-center gap-2
-                    hover:bg-[#eff1f5]/10 
-                    ${activeLink === "home"
-                      ? "bg-[#eff1f5]/15 text-white"
-                      : "text-gray-300 hover:text-white"
-                    }
-                  `}
-                >
-                  <FaHome className={`text-base ${activeLink === "home" ? "scale-110" : ""}`} />
-                  <span>{t("nav.home")}</span>
-                </Link>
+          {/* Desktop Right Side: More, Blog, Projects, Theme, Lang */}
+          <div className="hidden md:flex items-center gap-1 lg:gap-3">
+            {/* More Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium
+                  transition-all duration-300 flex items-center gap-2
+                  hover:bg-white/10 
+                  ${isDropdownActive
+                    ? "bg-white/15 text-white"
+                    : "text-gray-300 hover:text-white"
+                  }
+                `}
+              >
+                <FaLayerGroup className="text-base" />
+                <span>More</span>
+                <FaChevronDown className={`text-xs transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
 
-                {/* More Dropdown */}
-                <div className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className={`px-3 py-1.5 rounded-full text-sm font-medium
-                      transition-all duration-300 flex items-center gap-2
-                      hover:bg-[#eff1f5]/10 
-                      ${isDropdownActive
-                        ? "bg-[#eff1f5]/15 text-white"
-                        : "text-gray-300 hover:text-white"
-                      }
-                    `}
-                  >
-                    <FaLayerGroup className="text-base" />
-                    <span>More</span>
-                    <FaChevronDown className={`text-xs transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
-                  </button>
-
-                  {/* Dropdown Menu */}
-                  {isDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 py-2 bg-theme-card rounded-none border-2 border-[#eff1f5] shadow-[4px_4px_0px_0px_rgba(239,241,245,1)]">
-                      {dropdownLinks.map(({ id, icon: Icon, textKey, path }) => (
-                        <Link
-                          key={id}
-                          to={path}
-                          onClick={() => {
-                            setActiveLink(id);
-                            setIsDropdownOpen(false);
-                          }}
-                          className={`px-4 py-2.5 text-sm font-medium
-                            transition-all duration-300 flex items-center gap-3
-                            hover:bg-[#eff1f5]/10 
-                            ${activeLink === id
-                              ? "bg-[#eff1f5]/10 text-white"
-                              : "text-gray-300 hover:text-white"
-                            }
-                          `}
-                        >
-                          <Icon className={`text-base ${activeLink === id ? "text-white" : ""}`} />
-                          <span>{t(textKey)}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-48 py-2 bg-theme-card rounded-none border-2 border-[#eff1f5] shadow-[4px_4px_0px_0px_rgba(239,241,245,1)]">
+                  {dropdownLinks.map(({ id, icon: Icon, textKey, path }) => (
+                    <Link
+                      key={id}
+                      to={path}
+                      onClick={() => {
+                        setActiveLink(id);
+                        setIsDropdownOpen(false);
+                      }}
+                      className={`px-4 py-2.5 text-sm font-medium
+                        transition-all duration-300 flex items-center gap-3
+                        hover:bg-[#eff1f5]/10 
+                        ${activeLink === id
+                          ? "bg-[#eff1f5]/10 text-white"
+                          : "text-gray-300 hover:text-white"
+                        }
+                      `}
+                    >
+                      <Icon className={`text-base ${activeLink === id ? "text-white" : ""}`} />
+                      <span>{t(textKey)}</span>
+                    </Link>
+                  ))}
                 </div>
-
-                {/* Blog Link */}
-                <Link
-                  to="/blog"
-                  onClick={() => setActiveLink("blog")}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium
-                    transition-all duration-300 flex items-center gap-2
-                    hover:bg-[#eff1f5]/10 
-                    ${activeLink === "blog"
-                      ? "bg-[#eff1f5]/15 text-white"
-                      : "text-gray-300 hover:text-white"
-                    }
-                  `}
-                >
-                  <FaPen className={`text-base ${activeLink === "blog" ? "scale-110" : ""}`} />
-                  <span>{t("nav.blog")}</span>
-                </Link>
-
-                {/* Projects Link */}
-                <Link
-                  to="/projects"
-                  onClick={() => setActiveLink("projects")}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium
-                    transition-all duration-300 flex items-center gap-2
-                    hover:bg-[#eff1f5]/10 
-                    ${activeLink === "projects"
-                      ? "bg-[#eff1f5]/15 text-white"
-                      : "text-gray-300 hover:text-white"
-                    }
-                  `}
-                >
-                  <FaLaptopCode className={`text-base ${activeLink === "projects" ? "scale-110" : ""}`} />
-                  <span>{t("nav.projects")}</span>
-                </Link>
-
-                
-                {/* Desktop Language Toggle & Theme Toggle */}
-                <div className="flex items-center gap-2 ml-2 pl-2 border-l border-gray-700/50">
-                  <ThemeToggle />
-                  <LanguageSwitcher />
-                </div>
-              </div>
+              )}
             </div>
-          </nav>
+
+            {/* Blog Link */}
+            <Link
+              to="/blog"
+              onClick={() => setActiveLink("blog")}
+              className={`px-2 py-1.5 text-sm font-medium
+                transition-all duration-300 flex items-center gap-2
+                ${activeLink === "blog"
+                  ? "text-white"
+                  : "text-gray-400 hover:text-white"
+                }
+              `}
+            >
+              <span>{t("nav.blog")}</span>
+            </Link>
+
+            {/* Projects Link */}
+            <Link
+              to="/projects"
+              onClick={() => setActiveLink("projects")}
+              className={`px-2 py-1.5 text-sm font-medium
+                transition-all duration-300 flex items-center gap-2
+                ${activeLink === "projects"
+                  ? "text-white"
+                  : "text-gray-400 hover:text-white"
+                }
+              `}
+            >
+              <span>{t("nav.projects")}</span>
+            </Link>
+            
+            {/* Icons: Theme & Language */}
+            <div className="flex items-center gap-1 ml-2">
+              <ThemeToggle />
+              <LanguageSwitcher />
+            </div>
+          </div>
         </div>
-      </div>
+
+        {/* Mobile Navigation Links */}
+        <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden mt-4 max-w-7xl mx-auto`}>
+          <div className="flex flex-col gap-2 py-2">
+            {allNavLinks.map(({ id, icon: Icon, textKey, path }) => (
+              <Link
+                key={id}
+                to={path}
+                onClick={() => {
+                  setActiveLink(id);
+                  setIsMenuOpen(false);
+                }}
+                className={`px-3 py-2 rounded-lg text-sm font-medium
+                  transition-all duration-300 flex items-center gap-2
+                  hover:bg-white/10 
+                  ${activeLink === id
+                    ? "bg-white/15 text-white"
+                    : "text-gray-300 hover:text-white"
+                  }
+                `}
+              >
+                <Icon className={`text-base ${activeLink === id ? "scale-110" : ""}`} />
+                <span className="inline">{t(textKey)}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
 
       <style>{`
         @keyframes gradient-x {

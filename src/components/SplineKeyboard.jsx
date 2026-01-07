@@ -228,8 +228,12 @@ const SplineKeyboard = () => {
       }
     };
 
-    app.addEventListener("mouseHover", onHover);
-    // Add mouseDown for better mobile tap response
+    // OPTIMIZATION: Disable hover listener on mobile to save performance (raycasting overhead)
+    if (!isMobile) {
+      app.addEventListener("mouseHover", onHover);
+    }
+    
+    // Add mouseDown for mobile tap response (Primary interaction for mobile)
     if (isMobile) {
       app.addEventListener("mouseDown", onHover);
     }
@@ -262,12 +266,12 @@ const SplineKeyboard = () => {
       {/* Unified Layout: Title + Description on Left with 3D tilt */}
       <div 
         ref={textContainerRef}
-        className={`absolute pointer-events-none transition-opacity ease-out transform-gpu 
+        className={`absolute pointer-events-none transition-opacity ease-out transform-gpu z-30
           ${selectedSkill ? 'opacity-100' : 'opacity-0'}
           ${isMobile ? 'duration-0' : 'duration-100'} 
         `}
         style={{
-          top: isMobile ? '5%' : '15%',
+          top: isMobile ? '2%' : '15%',
           left: isMobile ? '5%' : '12%',
           maxWidth: isMobile ? '70%' : '380px',
           transform: isMobile 
