@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useTheme } from "@/context/ThemeContext";
 
 // Lazy load Spline to improve performance
@@ -9,7 +8,8 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 const AboutMe = () => {
   const { t } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  // Lock mobile state on mount to prevent re-renders when address bar shows/hides
+  const [isMobile] = useState(() => window.innerWidth <= 768);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
 
@@ -18,7 +18,7 @@ const AboutMe = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Choose Spline scene based on device
+  // Choose Spline scene based on device state at MOUNT time
   const splineScene = isMobile 
     ? "/models/about-me-mobile.spline" 
     : "/models/about-me-desktop.spline";
