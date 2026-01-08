@@ -57,12 +57,11 @@ export default function Header() {
     { id: "contact", icon: FaEnvelope, textKey: "nav.contact", path: "/contact" },
   ];
 
-  // All links for mobile menu
+  // All links for mobile menu (About Me removed - not available on mobile)
   const allNavLinks = [
     { id: "home", icon: FaCoffee, textKey: "nav.home", path: "/" },
     { id: "blog", icon: FaPen, textKey: "nav.blog", path: "/blog" },
     { id: "skills", icon: FaCode, textKey: "nav.skills", path: "/skills" },
-    { id: "about", icon: FaUser, textKey: "nav.aboutMe", path: "/about" },
     { id: "certificate", icon: FaGraduationCap, textKey: "nav.certificate", path: "/certificate" },
     { id: "projects", icon: FaLaptopCode, textKey: "nav.projects", path: "/projects" },
     { id: "guestbook", icon: FaComments, textKey: "nav.guestbook", path: "/guestbook" },
