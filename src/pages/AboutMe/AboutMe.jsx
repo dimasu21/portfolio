@@ -1,3 +1,8 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
+import SEO from "@/components/SEO";
+import StarsBackground from "@/components/StarsBackground";
+
 // Lazy load Spline to improve performance
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
