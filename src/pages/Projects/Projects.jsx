@@ -12,6 +12,7 @@ import potholeImg from "../../assets/images/Demo.png";
 import dssImg from "../../assets/images/screenshot-main.png";
 import portfolioImg from "../../assets/images/portofolio.png";
 import netraImg from "../../assets/images/netra-preview.png";
+import keyboardImg from "../../assets/images/3d-keyboard.png";
 
 // --- PROJECT DATA ---
 const getProjects = (t) => [
@@ -51,10 +52,10 @@ const getProjects = (t) => [
   {
     title: t("projects.items.portfolio.title"),
     description: t("projects.items.portfolio.description"),
-    src: portfolioImg,
-    color: "#8b5cf6", // Purple
-    githubLink: "https://github.com/DimasTriM/modern-portfolio.git",
-    hideLiveDemo: true,
+    src: keyboardImg,
+    color: "#22d3ee", // Cyan
+    githubLink: "",
+    liveLink: "",
   },
 ];
 
