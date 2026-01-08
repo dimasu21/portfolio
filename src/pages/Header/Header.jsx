@@ -12,7 +12,7 @@ import {
   FaChevronDown,
   FaLayerGroup,
   FaPen,
-  FaUserAstronaut,
+  FaUser,
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -51,7 +51,7 @@ export default function Header() {
   // Dropdown links (Skills, About Me, Certificate, Guestbook, Contact)
   const dropdownLinks = [
     { id: "skills", icon: FaCode, textKey: "nav.skills", path: "/skills" },
-    { id: "about", icon: FaUserAstronaut, textKey: "nav.aboutMe", path: "/about" },
+    { id: "about", icon: FaUser, textKey: "nav.aboutMe", path: "/about" },
     { id: "certificate", icon: FaGraduationCap, textKey: "nav.certificate", path: "/certificate" },
     { id: "guestbook", icon: FaComments, textKey: "nav.guestbook", path: "/guestbook" },
     { id: "contact", icon: FaEnvelope, textKey: "nav.contact", path: "/contact" },
@@ -62,7 +62,7 @@ export default function Header() {
     { id: "home", icon: FaCoffee, textKey: "nav.home", path: "/" },
     { id: "blog", icon: FaPen, textKey: "nav.blog", path: "/blog" },
     { id: "skills", icon: FaCode, textKey: "nav.skills", path: "/skills" },
-    { id: "about", icon: FaUserAstronaut, textKey: "nav.aboutMe", path: "/about" },
+    { id: "about", icon: FaUser, textKey: "nav.aboutMe", path: "/about" },
     { id: "certificate", icon: FaGraduationCap, textKey: "nav.certificate", path: "/certificate" },
     { id: "projects", icon: FaLaptopCode, textKey: "nav.projects", path: "/projects" },
     { id: "guestbook", icon: FaComments, textKey: "nav.guestbook", path: "/guestbook" },

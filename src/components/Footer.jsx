@@ -43,7 +43,7 @@ const Footer = () => {
 
   const navLinks = [
     { name: t("nav.skills"), href: "/skills" },
-    { name: t("nav.experience"), href: "/experience" },
+    { name: t("nav.aboutMe"), href: "/about" },
     { name: t("nav.projects"), href: "/projects" },
     { name: t("nav.certificate"), href: "/certificate" },
     { name: t("nav.guestbook"), href: "/guestbook" },
