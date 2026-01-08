@@ -12,6 +12,9 @@ const AboutMe = () => {
   const [isMobile] = useState(() => window.innerWidth <= 768);
   const [isLoaded, setIsLoaded] = useState(false);
   const [mountId] = useState(() => Date.now()); // Unique key per visit to force reset
+  
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
 
   // Force scroll to top on mount
   useEffect(() => {
