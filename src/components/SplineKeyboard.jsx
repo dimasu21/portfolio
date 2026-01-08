@@ -239,6 +239,40 @@ const SplineKeyboard = () => {
     }
   };
 
+  // Auto-cycle for mobile
+  useEffect(() => {
+    if (!isMobile || !isLoaded || !splineApp) return;
+
+    const skillsArray = Object.values(SKILLS);
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      const skill = skillsArray[currentIndex];
+      setSelectedSkill(skill);
+
+      // Visual Pop Effect
+      const obj = splineApp.findObjectByName(skill.name);
+      if (obj) {
+        // Reset scale first to ensure clean animation
+        gsap.set(obj.scale, { x: 1, y: 1, z: 1 });
+        // Pop animation
+        gsap.to(obj.scale, { 
+          x: 1.15, 
+          y: 1.15, 
+          z: 1.15, 
+          duration: 0.2, 
+          yoyo: true, 
+          repeat: 1,
+          ease: "back.out(1.7)"
+        });
+      }
+
+      currentIndex = (currentIndex + 1) % skillsArray.length;
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [isMobile, isLoaded, splineApp]);
+
   return (
     <div className="relative w-full h-[450px] md:h-[700px] flex items-center justify-center overflow-visible touch-pan-y"> 
       {/* Added touch-none to prevent scrolling interference */}
