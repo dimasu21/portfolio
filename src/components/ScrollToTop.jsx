@@ -18,12 +18,12 @@ export default function ScrollToTop() {
     // Scroll to top immediately
     window.scrollTo(0, 0);
 
-    // Some browsers/mobile need a small delay override
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+    // Multiple delayed scroll resets to catch Spline interference
+    const timers = [50, 200, 500, 1000].map(delay => 
+      setTimeout(() => window.scrollTo(0, 0), delay)
+    );
 
-    return () => clearTimeout(timer);
+    return () => timers.forEach(clearTimeout);
   }, [pathname, search]);
 
   return null;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -10,25 +10,24 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
 const AboutMe = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [shouldLoadSpline, setShouldLoadSpline] = useState(!isMobile);
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
 
-  // Force scroll to top on mount to prevent jump bug
-  useEffect(() => {
+  // Force scroll to top BEFORE paint using useLayoutEffect
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, []);
 
-  // Delay Spline loading on mobile to prevent crash
+  // Delay Spline loading significantly on mobile to prevent crash and scroll issues
   useEffect(() => {
-    if (isMobile) {
-      const timer = setTimeout(() => {
-        setShouldLoadSpline(true);
-      }, 800); // Wait 800ms for page to settle
-      return () => clearTimeout(timer);
-    } else {
+    const delay = isMobile ? 1500 : 300; // Much longer delay on mobile
+    const timer = setTimeout(() => {
       setShouldLoadSpline(true);
-    }
+    }, delay);
+    return () => clearTimeout(timer);
   }, [isMobile]);
 
   // Choose Spline scene based on device
@@ -37,7 +36,7 @@ const AboutMe = () => {
     : "/models/about-me-desktop.spline";
 
   return (
-    <div className="relative min-h-screen pt-32 pb-20 overflow-hidden">
+    <div className="relative min-h-screen pt-32 pb-20 overflow-x-hidden">
       <SEO 
         title="About Me" 
         description="Learn more about my journey and passion for technology."
@@ -64,8 +63,11 @@ const AboutMe = () => {
 
       </div>
 
-      {/* Spline Design - Responsive Height */}
-      <div className={`w-full relative z-10 ${isMobile ? 'h-[70vh]' : 'h-[85vh]'}`}>
+      {/* Spline Design - Fixed height, touch-none to prevent scroll interference */}
+      <div 
+        className={`w-full relative z-10 touch-none ${isMobile ? 'h-[70vh]' : 'h-[85vh]'}`}
+        style={{ touchAction: 'none', overflow: 'hidden' }}
+      >
           {shouldLoadSpline ? (
             <React.Suspense fallback={
               <div className="w-full h-full flex items-center justify-center text-gray-500 gap-2">
@@ -76,6 +78,7 @@ const AboutMe = () => {
               <Spline 
                 scene={splineScene} 
                 className="w-full h-full"
+                style={{ touchAction: 'none' }}
               />
             </React.Suspense>
           ) : (
