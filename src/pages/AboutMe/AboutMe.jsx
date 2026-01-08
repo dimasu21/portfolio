@@ -40,7 +40,11 @@ const AboutMe = () => {
               Loading 3D Scene...
             </div>
           }>
-            <Spline scene="/models/about-me.spline" className="w-full h-full" />
+            <Spline 
+              scene="/models/about-me.spline" 
+              className="w-full h-full"
+              style={{ imageRendering: 'crisp-edges' }}
+            />
           </React.Suspense>
       </div>
     </div>
