@@ -24,7 +24,7 @@ const AboutMe = () => {
   // Choose Spline scene
   const splineScene = isMobile 
     ? "/models/about-me-mobile.spline" 
-    : "/models/about-me-desktop.spline";
+    : "/models/about-me-desktop-2.spline";
 
   const handleSplineLoad = (splineApp) => {
     // Small delay to ensure scene is actually ready to render frame
