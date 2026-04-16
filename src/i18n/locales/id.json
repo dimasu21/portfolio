@@ -90,6 +90,10 @@
     "liveDemo": "Demo Langsung",
     "visitSite": "Kunjungi Website",
     "items": {
+      "hr": {
+        "title": "HR Analytics & Prediksi Attrition",
+        "description": "Dashboard data interaktif dan alat Machine Learning berbasis Flask dan Plotly untuk menganalisis data karyawan serta memprediksi pengunduran diri menggunakan model Random Forest."
+      },
       "netra": {
         "title": "Netra - Asisten Tinjauan Pustaka",
         "description": "Asisten AI untuk Review Tinjauan Pustaka. Upload dokumen, biarkan OCR & algoritma Rabin-Karp menemukan bagian relevan secara instan."

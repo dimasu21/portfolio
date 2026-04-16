@@ -90,6 +90,10 @@
     "liveDemo": "Live Demo",
     "visitSite": "Visit Website",
     "items": {
+      "hr": {
+        "title": "HR Analytics & Employee Attrition",
+        "description": "An interactive data dashboard and Machine Learning tool built with Flask and Plotly to analyze employee data and predict attrition using a Random Forest model."
+      },
       "netra": {
         "title": "Netra - Literature Review Assistant",
         "description": "An AI-powered assistant for literature reviews. Upload documents and let our OCR & Rabin-Karp algorithms instantly find relevant sections for your research."

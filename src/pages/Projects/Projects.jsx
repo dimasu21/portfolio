@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 
 // --- ASSETS IMPORT ---
+import hrImg from "../../assets/images/HR Analytics Employee.png";
 import houseImg from "../../assets/images/pratinjau.png";
 import potholeImg from "../../assets/images/Demo.png";
 import dssImg from "../../assets/images/screenshot-main.png";
@@ -16,6 +17,14 @@ import keyboardImg from "../../assets/images/3d-keyboard.png";
 
 // --- PROJECT DATA ---
 const getProjects = (t) => [
+  {
+    title: t("projects.items.hr.title"),
+    description: t("projects.items.hr.description"),
+    src: hrImg,
+    color: "#10b981", // Emerald (matches dashboard theme)
+    githubLink: "https://github.com/dimasu21/HR-analytics-Employe",
+    liveLink: "",
+  },
   {
     title: t("projects.items.netra.title"),
     description: t("projects.items.netra.description"),
