@@ -94,6 +94,10 @@
         "title": "HR Analytics & Prediksi Attrition",
         "description": "Dashboard data interaktif dan alat Machine Learning berbasis Flask dan Plotly untuk menganalisis data karyawan serta memprediksi pengunduran diri menggunakan model Random Forest."
       },
+      "gtnest": {
+        "title": "QA Tester Front-End | GTNest",
+        "description": "Melakukan pengujian antarmuka pengguna (UI) dan pengalaman pengguna (UX) secara menyeluruh pada platform marketplace game, memastikan tampilan dan fungsionalitas berjalan optimal.\n\nMengevaluasi desain responsif di berbagai perangkat dan browser untuk meminimalisir kendala tampilan sisi klien (client-side).\n\nMendokumentasikan dan mengidentifikasi bug pada elemen frontend untuk meningkatkan kualitas produk sebelum diluncurkan ke pengguna akhir."
+      },
       "netra": {
         "title": "Netra - Asisten Tinjauan Pustaka",
         "description": "Asisten AI untuk Review Tinjauan Pustaka. Upload dokumen, biarkan OCR & algoritma Rabin-Karp menemukan bagian relevan secara instan."

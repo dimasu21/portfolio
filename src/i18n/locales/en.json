@@ -94,6 +94,10 @@
         "title": "HR Analytics & Employee Attrition",
         "description": "An interactive data dashboard and Machine Learning tool built with Flask and Plotly to analyze employee data and predict attrition using a Random Forest model."
       },
+      "gtnest": {
+        "title": "QA Tester Front-End | GTNest",
+        "description": "Conducted comprehensive user interface (UI) and user experience (UX) testing on a gaming marketplace platform, ensuring optimal appearance and functionality.\n\nEvaluated responsive design across various devices and browsers to minimize client-side display issues.\n\nDocumented and identified front-end bugs to guarantee product quality prior to final deployment."
+      },
       "netra": {
         "title": "Netra - Literature Review Assistant",
         "description": "An AI-powered assistant for literature reviews. Upload documents and let our OCR & Rabin-Karp algorithms instantly find relevant sections for your research."

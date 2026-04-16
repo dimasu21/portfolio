@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 
 // --- ASSETS IMPORT ---
 import hrImg from "../../assets/images/HR Analytics Employee.png";
+import gtnestImg from "../../assets/images/Tester UI UX.png";
 import houseImg from "../../assets/images/pratinjau.png";
 import potholeImg from "../../assets/images/Demo.png";
 import dssImg from "../../assets/images/screenshot-main.png";
@@ -24,6 +25,15 @@ const getProjects = (t) => [
     color: "#10b981", // Emerald (matches dashboard theme)
     githubLink: "https://github.com/dimasu21/HR-analytics-Employe",
     liveLink: "",
+  },
+  {
+    title: t("projects.items.gtnest.title"),
+    description: t("projects.items.gtnest.description"),
+    src: gtnestImg,
+    color: "#eab308", // Yellow for QA/testing theme
+    githubLink: "", 
+    liveLink: "https://gtnest.com/",
+    liveLabel: t("projects.visitSite"),
   },
   {
     title: t("projects.items.netra.title"),
@@ -164,7 +174,7 @@ export default function Projects() {
                 {...project}
                 url={project.src}
                 progress={scrollYProgress}
-                range={[i * 0.25, 1]}
+                range={[i * (1 / getProjects(t).length), 1]}
                 targetScale={targetScale}
                 t={t}
               />
@@ -265,7 +275,7 @@ function Card({
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 leading-tight">
                 {title}
               </h2>
-              <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-400 leading-relaxed whitespace-pre-line">
                 {description}
               </p>
             </div>
