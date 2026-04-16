@@ -165,7 +165,7 @@ LinkedIn : linkedin.com/in/dimas-tri-mulyo-1283a5392`,
                   ? "text-green-400" 
                   : item.type === "system" 
                     ? "text-yellow-400" 
-                    : "text-gray-300"
+                    : "text-[#d1d5db]"
               }`}
             >
               {item.text}
@@ -181,7 +181,7 @@ LinkedIn : linkedin.com/in/dimas-tri-mulyo-1283a5392`,
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent text-white outline-none font-mono caret-green-400"
+              className="flex-1 bg-transparent text-[#ffffff] outline-none font-mono caret-green-400"
               spellCheck={false}
               autoComplete="off"
             />
