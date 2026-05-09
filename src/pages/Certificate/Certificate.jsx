@@ -79,6 +79,26 @@ const CertificateSection = () => {
         "Prompt engineering and model optimization using powerful LLMs on the Azure platform.",
       link: "https://drive.google.com/file/d/15GABiFI6_HYbL4n-TR-4QzIp9_syqMDO/view?usp=sharing",
     },
+    {
+      title: "Machine Learning Expert",
+      issuer: "Dicoding Academy",
+      year: "2026",
+      achievements: ["Expert"],
+      skills: ["Machine Learning", "Python"],
+      description:
+        "Advanced machine learning concepts, model optimization, and deployment.",
+      link: "https://drive.google.com/file/d/1IljsbcDqflP4y676sISkZ5-h22RY8Kcd/view?usp=sharing",
+    },
+    {
+      title: "Deep Learning Expert",
+      issuer: "Dicoding Academy",
+      year: "2026",
+      achievements: ["Expert"],
+      skills: ["Deep Learning", "TensorFlow", "Neural Networks"],
+      description:
+        "Advanced deep learning architectures, computer vision, and NLP implementations.",
+      link: "https://drive.google.com/file/d/1ov-ampPPmKroTRzP4og-WF5tAFlHnz8G/view?usp=drive_link",
+    },
   ];
 
   const containerVariants = {

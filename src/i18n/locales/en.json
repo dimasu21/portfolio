@@ -33,15 +33,15 @@
     "uiMagic": "UI Magic",
     "cleanCode": "Clean Code",
     "innovation": "Innovation",
-    "role1": "Full-Stack Developer & UI/UX Enthusiast",
+    "role1": "Full-Stack Developer",
     "role2": "Python Developer & Machine Learning Practitioner",
     "role3": "Deep Learning & AI Engineer",
     "role4": "Docker & GitHub for DevOps"
   },
   "about": {
     "title": "AI Research, Developer, Designer, and Innovator",
-    "intro": "Hello! I'm Dimas Tri Mulyo, an AI Engineer with expertise in web development. I am passionate about integrating artificial intelligence to create innovative and user-friendly web solutions.",
-    "focus": "My focus is on making web development faster and more accessible. As an AI Engineer, I'm now expanding into backend development to grow as a full-stack developer.",
+    "intro": "Hello! I'm Dimas Tri Mulyo, a Full-Stack Developer and AI Engineer passionate about building intelligent, scalable, and user-friendly web applications. I specialize in combining modern web development with artificial intelligence to create innovative digital solutions.",
+    "focus": "My expertise includes front-end development, backend systems, database management, and AI model development. I am continuously expanding my skills to deliver efficient end-to-end software solutions and grow as a versatile software engineer.",
     "terminalTitle": "Try My Interactive Terminal",
     "terminalHint": "Type 'help' to see available commands",
     "quote": "I was reminded of what is perhaps the fundamental rule of technological progress: if something can be done, it probably will be done, and possibly already has been."
